@@ -21,5 +21,14 @@ public class Expense {
 
     private String expenseInformation;
 
+    @Override
+    public String toString() {
+        return "Expense{" +
+                "id=" + id +
+                ", expenseType='" + expenseType + '\'' +
+                ", expenseInformation='" + expenseInformation + '\'' +
+                '}';
+    }
+
 }
 

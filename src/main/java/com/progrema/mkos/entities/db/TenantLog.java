@@ -27,4 +27,16 @@ public class TenantLog {
 
     private String roomNumber;
 
+    @Override
+    public String toString() {
+        return "TenantLog{" +
+                "id=" + id +
+                ", checkin=" + checkin +
+                ", checkout=" + checkout +
+                ", tenantName='" + tenantName + '\'' +
+                ", tenantPhone='" + tenantPhone + '\'' +
+                ", roomNumber='" + roomNumber + '\'' +
+                '}';
+    }
+
 }

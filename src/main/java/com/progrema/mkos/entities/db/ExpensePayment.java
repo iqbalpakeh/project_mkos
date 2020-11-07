@@ -23,8 +23,24 @@ public class ExpensePayment {
 
     private String paymentInformation;
 
+    // -----------------------------
+    // Expense property's log
+    // -----------------------------
+
     private String expenseType;
 
     private String expenseInformation;
+
+    @Override
+    public String toString() {
+        return "ExpensePayment{" +
+                "id=" + id +
+                ", paymentTimestamp=" + paymentTimestamp +
+                ", paymentAmount=" + paymentAmount +
+                ", paymentInformation='" + paymentInformation + '\'' +
+                ", expenseType='" + expenseType + '\'' +
+                ", expenseInformation='" + expenseInformation + '\'' +
+                '}';
+    }
 
 }

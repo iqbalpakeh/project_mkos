@@ -40,4 +40,19 @@ public class IncomePayment {
 
     private String tenantPhone;
 
+    @Override
+    public String toString() {
+        return "IncomePayment{" +
+                "id=" + id +
+                ", paymentTimestamp=" + paymentTimestamp +
+                ", paymentAmount=" + paymentAmount +
+                ", paymentInformation='" + paymentInformation + '\'' +
+                ", roomNumber='" + roomNumber + '\'' +
+                ", roomRate=" + roomRate +
+                ", roomInformation='" + roomInformation + '\'' +
+                ", tenantName='" + tenantName + '\'' +
+                ", tenantPhone='" + tenantPhone + '\'' +
+                '}';
+    }
+
 }

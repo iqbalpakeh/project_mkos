@@ -23,4 +23,13 @@ public class Tenant {
     @OneToOne(mappedBy = "tenant")
     private Room room;
 
+    @Override
+    public String toString() {
+        return "Tenant{" +
+                "id=" + id +
+                ", tenantName='" + tenantName + '\'' +
+                ", tenantPhone='" + tenantPhone + '\'' +
+                ", room=" + (room != null ? room.getRoomNumber() : "") +
+                '}';
+    }
 }

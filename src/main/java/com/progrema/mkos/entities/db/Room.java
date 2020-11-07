@@ -24,4 +24,15 @@ public class Room {
     @JoinColumn(name = "tenant_id")
     private Tenant tenant;
 
+    @Override
+    public String toString() {
+        return "Room{" +
+                "id=" + id +
+                ", roomNumber='" + roomNumber + '\'' +
+                ", roomRate=" + roomRate +
+                ", roomInformation='" + roomInformation + '\'' +
+                ", tenant='" + (tenant != null ? tenant.getTenantName() : "") + '\'' +
+                '}';
+    }
+
 }
