@@ -2,8 +2,9 @@ package com.progrema.mkos;
 
 import com.progrema.mkos.entities.db.Expense;
 import com.progrema.mkos.entities.db.ExpensePayment;
-import com.progrema.mkos.repositories.ExpensePaymentRepository;
-import com.progrema.mkos.repositories.ExpenseRepository;
+import com.progrema.mkos.entities.db.IncomePayment;
+import com.progrema.mkos.entities.db.TenantLog;
+import com.progrema.mkos.repositories.*;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -12,17 +13,29 @@ public class InitApplication implements CommandLineRunner {
 
     private final ExpenseRepository expenseRepository;
     private final ExpensePaymentRepository expensePaymentRepository;
+    private final IncomePaymentRepository incomePaymentRepository;
+    private final RoomRepository roomRepository;
+    private final TenantLogRepository tenantLogRepository;
+    private final TenantRepository tenantRepository;
 
     public InitApplication(ExpenseRepository expenseRepository,
-                           ExpensePaymentRepository expensePaymentRepository) {
+                           ExpensePaymentRepository expensePaymentRepository,
+                           IncomePaymentRepository incomePaymentRepository,
+                           RoomRepository roomRepository,
+                           TenantLogRepository tenantLogRepository,
+                           TenantRepository tenantRepository) {
         this.expenseRepository = expenseRepository;
         this.expensePaymentRepository = expensePaymentRepository;
+        this.incomePaymentRepository = incomePaymentRepository;
+        this.roomRepository = roomRepository;
+        this.tenantLogRepository = tenantLogRepository;
+        this.tenantRepository = tenantRepository;
     }
 
     @Override
     public void run(String... args) throws Exception {
         clearDatabase();
-        populateDatabase();
+        populateDatabase01();
     }
 
     private void clearDatabase() {
@@ -30,7 +43,7 @@ public class InitApplication implements CommandLineRunner {
         expensePaymentRepository.deleteAll();
     }
 
-    private void populateDatabase() {
+    private void populateDatabase01() {
         {
             Expense expense1 = new Expense();
             expense1.setExpenseType("Water");
@@ -66,6 +79,29 @@ public class InitApplication implements CommandLineRunner {
             expensePayment3.setExpenseType("Electricity");
             expensePayment3.setExpenseInformation("Rekening : 567890");
             expensePaymentRepository.save(expensePayment3);
+        }
+        {
+            IncomePayment incomePayment1 = new IncomePayment();
+            incomePayment1.setPaymentTimestamp(202001L);
+            incomePayment1.setPaymentAmount(300000L);
+            incomePayment1.setPaymentInformation("Income payment from Room B");
+            incomePayment1.setRoomNumber("B");
+            incomePayment1.setRoomRate(300000L);
+            incomePayment1.setRoomInformation("Room B is on the second floor");
+            incomePayment1.setTenantName("Mohammad Luthfi");
+            incomePayment1.setTenantPhone("081811112222");
+            incomePaymentRepository.save(incomePayment1);
+
+            IncomePayment incomePayment2 = new IncomePayment();
+            incomePayment2.setPaymentTimestamp(202001L);
+            incomePayment2.setPaymentAmount(300000L);
+            incomePayment2.setPaymentInformation("Income payment from Room B");
+            incomePayment2.setRoomNumber("B");
+            incomePayment2.setRoomRate(300000L);
+            incomePayment2.setRoomInformation("Room B is on the second floor");
+            incomePayment2.setTenantName("Mohammad Luthfi");
+            incomePayment2.setTenantPhone("081811112222");
+            incomePaymentRepository.save(incomePayment2);
         }
     }
 

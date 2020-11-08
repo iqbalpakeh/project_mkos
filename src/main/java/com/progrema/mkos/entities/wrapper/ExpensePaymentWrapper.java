@@ -8,7 +8,7 @@ import lombok.Setter;
 @Setter
 public class ExpensePaymentWrapper {
 
-    private ExpensePayment expensePayment;
+    private final ExpensePayment expensePayment;
 
     public ExpensePaymentWrapper(ExpensePayment expensePayment) {
         this.expensePayment = expensePayment;
