@@ -124,6 +124,45 @@ public class InitApplication implements CommandLineRunner {
         }
 
         // -----------------------------
+        // Assign tenant to room
+        // -----------------------------
+
+        {
+            Room room = roomRepository.findByRoomNumber("D").get(0);
+            Tenant tenant = tenantRepository.findByTenantName("Moh Irfan B").get(0);
+            room.setTenant(tenant);
+            roomRepository.save(room);
+        }
+
+        {
+            Room room = roomRepository.findByRoomNumber("E").get(0);
+            Tenant tenant = tenantRepository.findByTenantName("Luthfi").get(0);
+            room.setTenant(tenant);
+            roomRepository.save(room);
+        }
+
+        {
+            Room room = roomRepository.findByRoomNumber("J").get(0);
+            Tenant tenant = tenantRepository.findByTenantName("Irfan").get(0);
+            room.setTenant(tenant);
+            roomRepository.save(room);
+        }
+
+        {
+            Room room = roomRepository.findByRoomNumber("K").get(0);
+            Tenant tenant = tenantRepository.findByTenantName("Lucky").get(0);
+            room.setTenant(tenant);
+            roomRepository.save(room);
+        }
+
+        {
+            Room room = roomRepository.findByRoomNumber("L").get(0);
+            Tenant tenant = tenantRepository.findByTenantName("Irgi").get(0);
+            room.setTenant(tenant);
+            roomRepository.save(room);
+        }
+
+        // -----------------------------
         // Create Expense Payment
         // -----------------------------
 
