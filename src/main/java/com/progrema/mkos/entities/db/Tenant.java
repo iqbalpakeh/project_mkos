@@ -20,6 +20,10 @@ public class Tenant {
 
     private String tenantPhone;
 
+    private Long checkin;
+
+    private Long checkout;
+
     @OneToOne(mappedBy = "tenant")
     private Room room;
 
@@ -29,6 +33,8 @@ public class Tenant {
                 "id=" + id +
                 ", tenantName='" + tenantName + '\'' +
                 ", tenantPhone='" + tenantPhone + '\'' +
+                ", checkin='" + checkin + '\'' +
+                ", checkout='" + checkout + '\'' +
                 ", room=" + (room != null ? room.getRoomNumber() : "") +
                 '}';
     }

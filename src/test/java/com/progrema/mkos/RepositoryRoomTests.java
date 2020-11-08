@@ -38,6 +38,8 @@ public class RepositoryRoomTests {
             Tenant tenant = new Tenant();
             tenant.setTenantName("M Lutfi");
             tenant.setTenantPhone("081811112222");
+            tenant.setCheckin(202001L);
+            tenant.setCheckout(202002L);
             tenantRepository.save(tenant);
         }
         {
@@ -58,6 +60,8 @@ public class RepositoryRoomTests {
             Tenant tenant = room.getTenant();
             assertEquals("M Lutfi", tenant.getTenantName());
             assertEquals("081811112222", tenant.getTenantPhone());
+            assertEquals(202001L, tenant.getCheckin());
+            assertEquals(202002L, tenant.getCheckout());
         }
     }
 
@@ -67,6 +71,8 @@ public class RepositoryRoomTests {
             Tenant tenant = new Tenant();
             tenant.setTenantName("M Lutfi");
             tenant.setTenantPhone("081811112222");
+            tenant.setCheckin(202001L);
+            tenant.setCheckout(202002L);
             tenantRepository.save(tenant);
         }
         {
@@ -87,6 +93,8 @@ public class RepositoryRoomTests {
             assertEquals("B", room.getRoomNumber());
             assertEquals(550000L, room.getRoomRate());
             assertEquals("Located at 2nd floor", room.getRoomInformation());
+            assertEquals(202001L, tenant.getCheckin());
+            assertEquals(202002L, tenant.getCheckout());
         }
     }
 
@@ -96,6 +104,8 @@ public class RepositoryRoomTests {
             Tenant tenant = new Tenant();
             tenant.setTenantName("M Lutfi");
             tenant.setTenantPhone("081811112222");
+            tenant.setCheckin(202001L);
+            tenant.setCheckout(202002L);
             tenantRepository.save(tenant);
         }
         {

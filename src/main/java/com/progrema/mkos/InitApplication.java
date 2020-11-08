@@ -91,30 +91,35 @@ public class InitApplication implements CommandLineRunner {
             Tenant tenant = new Tenant();
             tenant.setTenantName("Moh Irfan B");
             tenant.setTenantPhone("087812668017");
+            tenant.setCheckin(202009L);
             tenantRepository.save(tenant);
         }
         {
             Tenant tenant = new Tenant();
             tenant.setTenantName("Luthfi");
             tenant.setTenantPhone("087725595557");
+            tenant.setCheckin(202009L);
             tenantRepository.save(tenant);
         }
         {
             Tenant tenant = new Tenant();
             tenant.setTenantName("Irfan");
             tenant.setTenantPhone("085721122232");
+            tenant.setCheckin(202009L);
             tenantRepository.save(tenant);
         }
         {
             Tenant tenant = new Tenant();
             tenant.setTenantName("Lucky");
             tenant.setTenantPhone("0898-222-6396");
+            tenant.setCheckin(202009L);
             tenantRepository.save(tenant);
         }
         {
             Tenant tenant = new Tenant();
             tenant.setTenantName("Irgi");
             tenant.setTenantPhone("089661101420");
+            tenant.setCheckin(202009L);
             tenantRepository.save(tenant);
         }
 

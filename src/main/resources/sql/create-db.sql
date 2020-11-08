@@ -34,7 +34,9 @@ create table income_payment(
 create table tenant(
 	id int primary key auto_increment,
     tenant_name varchar(100),
-    tenant_phone varchar(100)
+    tenant_phone varchar(100), 
+	checkin int,
+    checkout int
 );
 
 create table room(
