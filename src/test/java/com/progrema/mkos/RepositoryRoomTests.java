@@ -90,4 +90,26 @@ public class RepositoryRoomTests {
         }
     }
 
+    @Test
+    void testCreateRoomTest03() {
+        {
+            Tenant tenant = new Tenant();
+            tenant.setTenantName("M Lutfi");
+            tenant.setTenantPhone("081811112222");
+            tenantRepository.save(tenant);
+        }
+        {
+            Tenant tenant = tenantRepository.findByTenantName("M Lutfi").get(0);
+            Room room = new Room();
+            room.setRoomNumber("B");
+            room.setRoomRate(550000L);
+            room.setRoomInformation("Located at 2nd floor");
+            room.setTenant(tenant);
+            roomRepository.save(room);
+        }
+        {
+            roomRepository.findAll();
+        }
+    }
+
 }

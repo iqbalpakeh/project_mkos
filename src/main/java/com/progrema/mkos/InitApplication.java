@@ -1,41 +1,36 @@
 package com.progrema.mkos;
 
-import com.progrema.mkos.entities.db.Expense;
-import com.progrema.mkos.entities.db.ExpensePayment;
-import com.progrema.mkos.entities.db.IncomePayment;
-import com.progrema.mkos.entities.db.TenantLog;
+import com.progrema.mkos.entities.db.*;
 import com.progrema.mkos.repositories.*;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 @Component
 public class InitApplication implements CommandLineRunner {
 
-    private final ExpenseRepository expenseRepository;
-    private final ExpensePaymentRepository expensePaymentRepository;
-    private final IncomePaymentRepository incomePaymentRepository;
-    private final RoomRepository roomRepository;
-    private final TenantLogRepository tenantLogRepository;
-    private final TenantRepository tenantRepository;
+    @Autowired
+    private ExpenseRepository expenseRepository;
 
-    public InitApplication(ExpenseRepository expenseRepository,
-                           ExpensePaymentRepository expensePaymentRepository,
-                           IncomePaymentRepository incomePaymentRepository,
-                           RoomRepository roomRepository,
-                           TenantLogRepository tenantLogRepository,
-                           TenantRepository tenantRepository) {
-        this.expenseRepository = expenseRepository;
-        this.expensePaymentRepository = expensePaymentRepository;
-        this.incomePaymentRepository = incomePaymentRepository;
-        this.roomRepository = roomRepository;
-        this.tenantLogRepository = tenantLogRepository;
-        this.tenantRepository = tenantRepository;
-    }
+    @Autowired
+    private ExpensePaymentRepository expensePaymentRepository;
+
+    @Autowired
+    private IncomePaymentRepository incomePaymentRepository;
+
+    @Autowired
+    private RoomRepository roomRepository;
+
+    @Autowired
+    private TenantLogRepository tenantLogRepository;
+
+    @Autowired
+    private TenantRepository tenantRepository;
 
     @Override
     public void run(String... args) throws Exception {
         clearDatabase();
-        populateDatabase01();
+        // populateDatabase01();
     }
 
     private void clearDatabase() {
@@ -102,6 +97,23 @@ public class InitApplication implements CommandLineRunner {
             incomePayment2.setTenantName("Mohammad Luthfi");
             incomePayment2.setTenantPhone("081811112222");
             incomePaymentRepository.save(incomePayment2);
+        }
+        {
+            {
+                Tenant tenant = new Tenant();
+                tenant.setTenantName("M Lutfi");
+                tenant.setTenantPhone("081811112222");
+                tenantRepository.save(tenant);
+            }
+            {
+                Tenant tenant = tenantRepository.findByTenantName("M Lutfi").get(0);
+                Room room = new Room();
+                room.setRoomNumber("B");
+                room.setRoomRate(550000L);
+                room.setRoomInformation("Located at 2nd floor");
+                room.setTenant(tenant);
+                roomRepository.save(room);
+            }
         }
     }
 
