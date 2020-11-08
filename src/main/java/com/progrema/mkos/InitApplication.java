@@ -9,23 +9,26 @@ import org.springframework.stereotype.Component;
 @Component
 public class InitApplication implements CommandLineRunner {
 
-    @Autowired
     private ExpenseRepository expenseRepository;
-
-    @Autowired
     private ExpensePaymentRepository expensePaymentRepository;
-
-    @Autowired
     private IncomePaymentRepository incomePaymentRepository;
-
-    @Autowired
     private RoomRepository roomRepository;
-
-    @Autowired
     private TenantLogRepository tenantLogRepository;
-
-    @Autowired
     private TenantRepository tenantRepository;
+
+    public InitApplication(ExpenseRepository expenseRepository,
+                           ExpensePaymentRepository expensePaymentRepository,
+                           IncomePaymentRepository incomePaymentRepository,
+                           RoomRepository roomRepository,
+                           TenantLogRepository tenantLogRepository,
+                           TenantRepository tenantRepository) {
+        this.expenseRepository = expenseRepository;
+        this.expensePaymentRepository = expensePaymentRepository;
+        this.incomePaymentRepository = incomePaymentRepository;
+        this.roomRepository = roomRepository;
+        this.tenantLogRepository = tenantLogRepository;
+        this.tenantRepository = tenantRepository;
+    }
 
     @Override
     public void run(String... args) throws Exception {
@@ -118,6 +121,23 @@ public class InitApplication implements CommandLineRunner {
                 room.setTenant(tenant);
                 roomRepository.save(room);
             }
+        }
+        {
+            TenantLog tenantLog1 = new TenantLog();
+            tenantLog1.setCheckin(202001L);
+            tenantLog1.setCheckout(202002L);
+            tenantLog1.setTenantName("Iqbal Pakeh");
+            tenantLog1.setTenantPhone("081808488442");
+            tenantLog1.setRoomNumber("C");
+            tenantLogRepository.save(tenantLog1);
+
+            TenantLog tenantLog2 = new TenantLog();
+            tenantLog2.setCheckin(202001L);
+            tenantLog2.setCheckout(202002L);
+            tenantLog2.setTenantName("Aziza Ayunindya");
+            tenantLog2.setTenantPhone("081808488442");
+            tenantLog2.setRoomNumber("D");
+            tenantLogRepository.save(tenantLog2);
         }
     }
 
