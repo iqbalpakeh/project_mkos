@@ -30,12 +30,16 @@ public class InitApplication implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         clearDatabase();
-        // populateDatabase01();
+        populateDatabase01();
     }
 
     private void clearDatabase() {
         expenseRepository.deleteAll();
         expensePaymentRepository.deleteAll();
+        incomePaymentRepository.deleteAll();
+        roomRepository.deleteAll();
+        tenantLogRepository.deleteAll();
+        tenantRepository.deleteAll();
     }
 
     private void populateDatabase01() {
