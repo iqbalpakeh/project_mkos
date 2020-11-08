@@ -108,7 +108,7 @@ public class RepositoryRoomTests {
             roomRepository.save(room);
         }
         {
-            roomRepository.findAll();
+            roomRepository.findAll().forEach(System.out::println);
         }
     }
 

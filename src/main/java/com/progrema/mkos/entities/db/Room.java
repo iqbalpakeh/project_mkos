@@ -20,7 +20,7 @@ public class Room {
 
     private String roomInformation;
 
-    // @OneToOne(cascade = CascadeType.MERGE)
+    @OneToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "tenant_id")
     private Tenant tenant;
 
