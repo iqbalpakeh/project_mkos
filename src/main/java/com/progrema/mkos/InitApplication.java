@@ -2,7 +2,6 @@ package com.progrema.mkos;
 
 import com.progrema.mkos.entities.db.*;
 import com.progrema.mkos.repositories.*;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -138,6 +137,17 @@ public class InitApplication implements CommandLineRunner {
             tenantLog2.setTenantPhone("081808488442");
             tenantLog2.setRoomNumber("D");
             tenantLogRepository.save(tenantLog2);
+        }
+        {
+            Tenant tenant1 = new Tenant();
+            tenant1.setTenantName("M Lutfi");
+            tenant1.setTenantPhone("081811112222");
+            tenantRepository.save(tenant1);
+
+            Tenant tenant2 = new Tenant();
+            tenant2.setTenantName("Ansor Azari");
+            tenant2.setTenantPhone("0818888999");
+            tenantRepository.save(tenant2);
         }
     }
 
