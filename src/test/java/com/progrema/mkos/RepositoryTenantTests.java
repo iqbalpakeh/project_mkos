@@ -1,6 +1,7 @@
 package com.progrema.mkos;
 
 import com.progrema.mkos.entities.db.Tenant;
+import com.progrema.mkos.repositories.RoomRepository;
 import com.progrema.mkos.repositories.TenantRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -15,8 +16,12 @@ public class RepositoryTenantTests {
     @Autowired
     private TenantRepository tenantRepository;
 
+    @Autowired
+    private RoomRepository roomRepository;
+
     @BeforeEach
     void init() {
+        roomRepository.deleteAll();
         tenantRepository.deleteAll();
     }
 
