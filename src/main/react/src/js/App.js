@@ -6,7 +6,7 @@ import Login from "./sections/Login";
 
 class App extends Component {
 	render() {
-		return <Login />;
+		return <h1>Hello from React</h1>;
 	}
 }
 

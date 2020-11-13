@@ -2,7 +2,6 @@ package com.progrema.mkos.controller;
 
 import com.progrema.mkos.entities.wrapper.ExpenseWrapper;
 import com.progrema.mkos.services.ExpenseService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
