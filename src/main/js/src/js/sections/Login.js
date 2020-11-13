@@ -6,7 +6,7 @@ class Login extends Component {
 			<div className="d-flex flex-column min-vh-100">
 				<div className="text-center my-auto">
 					<form className="form-signin">
-						<i className="fas fa-home fa-5x text-secondary"></i>
+						<i className="fas fa-home fa-5x text-secondary mb-2"></i>
 						<h1 className="h3 mb-3 font-weight-normal">Please sign in</h1>
 						<label htmlFor="inputEmail" className="sr-only">
 							Email address
