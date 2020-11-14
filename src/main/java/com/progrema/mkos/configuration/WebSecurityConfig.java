@@ -43,7 +43,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     public UserDetailsService userDetailsService() {
         UserDetails user = User.withDefaultPasswordEncoder()
-                        .username("user")
+                        .username("iqbalpakeh@gmail.com")
                         .password("password")
                         .roles("USER")
                         .build();
