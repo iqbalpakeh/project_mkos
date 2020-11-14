@@ -1,33 +1,34 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import axios from "axios";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-import Login from "./sections/Login";
+import Navbar from "./sections/Navbar";
+import Footer from "./sections/Footer";
+
+import Home from "./sections/home";
+import Tenants from "./sections/tenants";
 
 class App extends Component {
-	componentDidMount() {
-		axios({
-			method: "GET",
-			url: `/api/tenants`,
-		}).then(
-			(response) => {
-				console.log(response.data);
-			},
-			(error) => console.log(error)
-		);
-	}
-
 	render() {
 		return (
-			<div>
-				<h1>Hello from React v3</h1>
-				<form action="/logout" method="post">
-					<input type="submit" value="Sign Out"></input>
-				</form>
-			</div>
+			<Router>
+				<div className="d-flex flex-column min-vh-100">
+					<Navbar />
+					<div className="wrapper flex-grow-1">
+						<Switch>
+							<Route exact path="/">
+								<Home />
+							</Route>
+							<Route path="/tenants">
+								<Tenants />
+							</Route>
+						</Switch>
+					</div>
+					<Footer />
+				</div>
+			</Router>
 		);
 	}
 }
 
-export default App;
+export default connect(null, null)(App);
