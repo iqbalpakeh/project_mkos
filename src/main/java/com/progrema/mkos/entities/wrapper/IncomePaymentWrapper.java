@@ -1,6 +1,6 @@
 package com.progrema.mkos.entities.wrapper;
 
-import com.progrema.mkos.entities.db.IncomePayment;
+import com.progrema.mkos.entities.model.IncomePayment;
 import lombok.Getter;
 import lombok.Setter;
 

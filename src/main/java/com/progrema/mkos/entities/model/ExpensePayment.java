@@ -1,4 +1,4 @@
-package com.progrema.mkos.entities.db;
+package com.progrema.mkos.entities.model;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -11,7 +11,7 @@ import javax.persistence.Id;
 @Entity
 @Getter
 @Setter
-public class IncomePayment {
+public class ExpensePayment {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,35 +24,22 @@ public class IncomePayment {
     private String paymentInformation;
 
     // -----------------------------
-    // Room property's log
+    // Expense property's log
     // -----------------------------
 
-    private String roomNumber;
+    private String expenseType;
 
-    private Long roomRate;
-
-    private String roomInformation;
-
-    // -----------------------------
-    // Tenant property's log
-    // -----------------------------
-
-    private String tenantName;
-
-    private String tenantPhone;
+    private String expenseInformation;
 
     @Override
     public String toString() {
-        return "IncomePayment{" +
+        return "ExpensePayment{" +
                 "id=" + id +
                 ", paymentTimestamp=" + paymentTimestamp +
                 ", paymentAmount=" + paymentAmount +
                 ", paymentInformation='" + paymentInformation + '\'' +
-                ", roomNumber='" + roomNumber + '\'' +
-                ", roomRate=" + roomRate +
-                ", roomInformation='" + roomInformation + '\'' +
-                ", tenantName='" + tenantName + '\'' +
-                ", tenantPhone='" + tenantPhone + '\'' +
+                ", expenseType='" + expenseType + '\'' +
+                ", expenseInformation='" + expenseInformation + '\'' +
                 '}';
     }
 

@@ -1,6 +1,5 @@
 package com.progrema.mkos.services;
 
-import com.progrema.mkos.entities.db.TenantLog;
 import com.progrema.mkos.entities.wrapper.TenantLogWrapper;
 
 import java.util.List;

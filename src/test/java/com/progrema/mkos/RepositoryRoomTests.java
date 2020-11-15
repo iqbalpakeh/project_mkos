@@ -1,14 +1,12 @@
 package com.progrema.mkos;
-import com.progrema.mkos.entities.db.Room;
-import com.progrema.mkos.entities.db.Tenant;
+import com.progrema.mkos.entities.model.Room;
+import com.progrema.mkos.entities.model.Tenant;
 import com.progrema.mkos.repositories.RoomRepository;
 import com.progrema.mkos.repositories.TenantRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-
-import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

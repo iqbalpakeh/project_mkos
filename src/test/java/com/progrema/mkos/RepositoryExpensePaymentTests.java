@@ -1,6 +1,6 @@
 package com.progrema.mkos;
 
-import com.progrema.mkos.entities.db.ExpensePayment;
+import com.progrema.mkos.entities.model.ExpensePayment;
 import com.progrema.mkos.repositories.ExpensePaymentRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

@@ -1,6 +1,6 @@
 package com.progrema.mkos.entities.wrapper;
 
-import com.progrema.mkos.entities.db.Room;
+import com.progrema.mkos.entities.model.Room;
 import lombok.Getter;
 import lombok.Setter;
 
