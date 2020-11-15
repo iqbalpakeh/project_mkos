@@ -16,13 +16,40 @@ class Expense extends Component {
 		);
 	}
 
-	buildTableInput(input) {
-		console.log(input);
-		return {
-			cardHeader: "Monthly Expense",
-			tableHeader: [],
-			tableEntry: [],
-		};
+	buildTableInput({ expense }) {
+		if (expense.expenses.length > 0) {
+			return {
+				cardHeader: this.buildCardHeader(expense),
+				tableHeader: this.buildTableHeader(expense),
+				tableEntry: this.buildTableEntry(expense),
+			};
+		} else {
+			return {
+				cardHeader: "Monthly Expense",
+				tableHeader: [],
+				tableEntry: [],
+			};
+		}
+	}
+
+	buildCardHeader(expense) {
+		return `${getYear(
+			expense.expenses[0].expensePayment.paymentTimestamp
+		)} Monthly Expense`;
+	}
+
+	buildTableHeader(expense) {
+		// let tableHeader = ["Expenses"];
+		// expense.expenses.map((element) => {
+		// 	tableHeader.push(getMonth(element.expensePayment.paymentTimestamp));
+		// });
+		// return tableHeader;
+		console.log(expense);
+		return [];
+	}
+
+	buildTableEntry(expense) {
+		return [];
 	}
 }
 
