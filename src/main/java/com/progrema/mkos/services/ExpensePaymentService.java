@@ -8,4 +8,6 @@ public interface ExpensePaymentService {
 
     List<ExpensePaymentWrapper> getExpensePayments();
 
+    List<ExpensePaymentWrapper> getExpensePayments(String year, String startMonth, String endMonth);
+
 }
