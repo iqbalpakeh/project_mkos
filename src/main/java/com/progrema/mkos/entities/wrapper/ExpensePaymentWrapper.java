@@ -17,8 +17,7 @@ public class ExpensePaymentWrapper {
         this.expenses = new ArrayList<>();
     }
 
-    public void addExpenses(ExpensePayment expensePayment) {
+    public void addExpensePayment(ExpensePayment expensePayment) {
         this.expenses.add(expensePayment);
     }
-
 }

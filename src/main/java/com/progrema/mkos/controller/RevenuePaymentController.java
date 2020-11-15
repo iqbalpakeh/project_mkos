@@ -17,11 +17,6 @@ public class RevenuePaymentController {
         this.revenuePaymentService = revenuePaymentService;
     }
 
-    @GetMapping("/api/revenue-payments")
-    public List<RevenuePaymentWrapper> getIncomePayments() {
-        return revenuePaymentService.getRevenuePayments();
-    }
-
     @GetMapping("/api/revenue-payments-range")
     public List<RevenuePaymentWrapper> getIncomePayments(@RequestParam String year,
                                                          @RequestParam String startMonth,

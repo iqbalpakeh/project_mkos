@@ -20,22 +20,13 @@ public class RevenuePaymentServiceImpl implements RevenuePaymentService {
     }
 
     @Override
-    public List<RevenuePaymentWrapper> getRevenuePayments() {
-        List<RevenuePaymentWrapper> revenuePaymentWrappers = new ArrayList<>();
-        revenuePaymentRepository.findAll().forEach(incomePayment -> {
-            revenuePaymentWrappers.add(new RevenuePaymentWrapper(incomePayment));
-        });
-        return revenuePaymentWrappers;
-    }
-
-    @Override
     public List<RevenuePaymentWrapper> getRevenuePayments(String year, String startMonth, String endMonth) {
         List<RevenuePaymentWrapper> revenuePaymentWrappers = new ArrayList<>();
         for (long i = Long.parseLong(startMonth); i <= Long.parseLong(endMonth); i++) {
             long timestamp = timestampService.timestamp(year, i);
-            revenuePaymentRepository.findByPaymentTimestamp(timestamp).forEach(incomePayment -> {
-                revenuePaymentWrappers.add(new RevenuePaymentWrapper(incomePayment));
-            });
+            RevenuePaymentWrapper revenuePaymentWrapper = new RevenuePaymentWrapper(timestamp);
+            revenuePaymentRepository.findByPaymentTimestamp(timestamp).forEach(revenuePaymentWrapper::addRevenuePayment);
+            revenuePaymentWrappers.add(revenuePaymentWrapper);
         }
         return revenuePaymentWrappers;
     }

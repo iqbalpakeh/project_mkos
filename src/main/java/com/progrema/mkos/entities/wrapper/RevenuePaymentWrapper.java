@@ -4,14 +4,21 @@ import com.progrema.mkos.entities.model.RevenuePayment;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Getter
-@Setter
 public class RevenuePaymentWrapper {
 
-    private final RevenuePayment revenuePayment;
+    private final long timestamp;
+    private final List<RevenuePayment> revenuePayments;
 
-    public RevenuePaymentWrapper(RevenuePayment revenuePayment) {
-        this.revenuePayment = revenuePayment;
+    public RevenuePaymentWrapper(long timestamp) {
+        this.timestamp = timestamp;
+        this.revenuePayments = new ArrayList<>();
     }
 
+    public void addRevenuePayment(RevenuePayment revenuePayment) {
+        this.revenuePayments.add(revenuePayment);
+    }
 }
