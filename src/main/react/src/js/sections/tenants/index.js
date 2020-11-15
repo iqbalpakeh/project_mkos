@@ -1,8 +1,14 @@
 import React, { Component } from "react";
 
+import Header from "../../components/Header";
+
 class Index extends Component {
 	render() {
-		return <h1>Tenants</h1>;
+		return (
+			<div>
+				<Header icon="fas fa-users" title="Tenants" />
+			</div>
+		);
 	}
 }
 
