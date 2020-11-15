@@ -1,5 +1,5 @@
 import { combineReducers } from "redux";
 
-import netIncome from "./NetIncome";
+import income from "./Income";
 
-export default combineReducers({ netIncome });
+export default combineReducers({ income });

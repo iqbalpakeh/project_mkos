@@ -2,7 +2,7 @@ import axios from "axios";
 
 import { addNetIncome } from "./redux/Action";
 
-export const fetchIncomePayments = ({
+export const fetchRevenuePayments = ({
 	year,
 	startMonth,
 	endMonth,
@@ -10,7 +10,7 @@ export const fetchIncomePayments = ({
 }) => {
 	axios({
 		method: "GET",
-		url: `/api/income-payments-range?year=${year}&startMonth=${startMonth}&endMonth=${endMonth}`,
+		url: `/api/revenue-payments-range?year=${year}&startMonth=${startMonth}&endMonth=${endMonth}`,
 	}).then(
 		(response) => {
 			// console.log(response.data);
@@ -36,10 +36,10 @@ export const fetchExpensePayments = ({
 	);
 };
 
-export const fetchNetIncomes = ({ year, startMonth, endMonth, dispatch }) => {
+export const fetchIncomes = ({ year, startMonth, endMonth, dispatch }) => {
 	axios({
 		method: "GET",
-		url: `/api/net-income-range?year=${year}&startMonth=${startMonth}&endMonth=${endMonth}`,
+		url: `/api/incomes-range?year=${year}&startMonth=${startMonth}&endMonth=${endMonth}`,
 	}).then(
 		(response) => {
 			dispatch(addNetIncome(response.data));

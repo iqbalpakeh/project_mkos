@@ -2,13 +2,13 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 
 import {
-	fetchIncomePayments,
+	fetchRevenuePayments,
 	fetchExpensePayments,
-	fetchNetIncomes,
+	fetchIncomes,
 } from "../../Api";
 
 import Header from "../../components/Header";
-import NetIncome from "./NetIncome";
+import Income from "./Income";
 
 class Index extends Component {
 	componentDidMount() {
@@ -19,16 +19,16 @@ class Index extends Component {
 			dispatch: this.props.dispatch,
 		};
 
-		fetchIncomePayments(filter);
+		fetchRevenuePayments(filter);
 		fetchExpensePayments(filter);
-		fetchNetIncomes(filter);
+		fetchIncomes(filter);
 	}
 
 	render() {
 		return (
 			<div>
 				<Header icon="fas fa-home" title="Home" />
-				<NetIncome />
+				<Income />
 			</div>
 		);
 	}

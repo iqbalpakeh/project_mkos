@@ -1,6 +1,6 @@
-export const ADD_NETINCOME = "ADD_NETINCOME";
+export const ADD_INCOME = "ADD_INCOME";
 
-export const addNetIncome = (netIncome) => ({
-	type: ADD_NETINCOME,
-	payload: netIncome,
+export const addNetIncome = (income) => ({
+	type: ADD_INCOME,
+	payload: income,
 });
