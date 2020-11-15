@@ -6,10 +6,12 @@ import com.progrema.mkos.entities.model.NetIncome;
 import com.progrema.mkos.entities.wrapper.NetIncomeWrapper;
 import com.progrema.mkos.repositories.ExpensePaymentRepository;
 import com.progrema.mkos.repositories.IncomePaymentRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Service
 public class NetIncomeServiceImpl implements NetIncomeService {
 
     private final IncomePaymentRepository incomePaymentRepository;
@@ -28,9 +30,11 @@ public class NetIncomeServiceImpl implements NetIncomeService {
     public List<NetIncomeWrapper> getNetIncomes(String year, String startMonth, String endMonth) {
         List<NetIncomeWrapper> netIncomeWrappers = new ArrayList<>();
         for (long i = Long.parseLong(startMonth); i <= Long.parseLong(endMonth); i++) {
+            long timestamp = timestampService.timestamp(year, i);
             NetIncome netIncome  = new NetIncome();
-            netIncome.setTotalIncome(calculateTotalIncome(timestampService.timestamp(year, i)));
-            netIncome.setTotalExpense(calculateTotalExpense(timestampService.timestamp(year, i)));
+            netIncome.setTimestamp(timestamp);
+            netIncome.setTotalIncome(calculateTotalIncome(timestamp));
+            netIncome.setTotalExpense(calculateTotalExpense(timestamp));
             netIncome.setNetIncome(calculateNetIncome(netIncome.getTotalIncome(), netIncome.getTotalExpense()));
             netIncomeWrappers.add(new NetIncomeWrapper(netIncome));
         }
