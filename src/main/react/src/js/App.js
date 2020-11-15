@@ -2,9 +2,31 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
+import Navbar from "./sections/Navbar";
+import Home from "./sections/home";
+import Tenants from "./sections/tenants";
+import Footer from "./sections/Footer";
+
 class App extends Component {
 	render() {
-		return <h1>Hello from React</h1>;
+		return (
+			<Router>
+				<div className="d-flex flex-column min-vh-100">
+					<Navbar />
+					<div className="wrapper flex-grow-1">
+						<Switch>
+							<Route exact path="/">
+								<Home />
+							</Route>
+							<Route path="/tenants">
+								<Tenants />
+							</Route>
+						</Switch>
+					</div>
+					<Footer />
+				</div>
+			</Router>
+		);
 	}
 }
 
