@@ -47,7 +47,7 @@ public class IncomeServiceImpl implements IncomeService {
     }
 
     private long calculateTotalExpense(long timestamp) {
-        List<ExpensePayment> expensePayments = expensePaymentRepository.findByPaymentTimestamp(timestamp);
+        List<ExpensePayment> expensePayments = expensePaymentRepository.findByPaymentTimestampOrderByExpenseType(timestamp);
         return expensePayments.stream().mapToLong(ExpensePayment::getPaymentAmount).sum();
     }
 

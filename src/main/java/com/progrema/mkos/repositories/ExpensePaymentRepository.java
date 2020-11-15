@@ -7,6 +7,6 @@ import java.util.List;
 
 public interface ExpensePaymentRepository extends PagingAndSortingRepository<ExpensePayment, Long> {
 
-    List<ExpensePayment> findByPaymentTimestamp(long timestamp);
+    List<ExpensePayment> findByPaymentTimestampOrderByExpenseType(long timestamp);
 
 }

@@ -55,24 +55,24 @@ public class RepositoryExpensePaymentTests {
             expensePaymentRepository.save(expensePayment3);
         }
         {
-            List<ExpensePayment> expensePayments2020Jan = expensePaymentRepository.findByPaymentTimestamp(202001L);
+            List<ExpensePayment> expensePayments2020Jan = expensePaymentRepository.findByPaymentTimestampOrderByExpenseType(202001L);
             assertEquals(2, expensePayments2020Jan.size());
 
             ExpensePayment expensePayment1 = expensePayments2020Jan.get(0);
             assertEquals(202001L, expensePayment1.getPaymentTimestamp());
-            assertEquals(250000L, expensePayment1.getPaymentAmount());
-            assertEquals("Water", expensePayment1.getExpenseType());
-            assertEquals("This is for expense water 2020 Jan", expensePayment1.getPaymentInformation());
-            assertEquals("Rekening : 12344567", expensePayment1.getExpenseInformation());
+            assertEquals(300000L, expensePayment1.getPaymentAmount());
+            assertEquals("Electricity", expensePayment1.getExpenseType());
+            assertEquals("This is for expense electricity 2020 Jan", expensePayment1.getPaymentInformation());
+            assertEquals("Rekening : 567890", expensePayment1.getExpenseInformation());
 
             ExpensePayment expensePayment2 = expensePayments2020Jan.get(1);
             assertEquals(202001L, expensePayment2.getPaymentTimestamp());
-            assertEquals(300000L, expensePayment2.getPaymentAmount());
-            assertEquals("Electricity", expensePayment2.getExpenseType());
-            assertEquals("This is for expense electricity 2020 Jan", expensePayment2.getPaymentInformation());
-            assertEquals("Rekening : 567890", expensePayment2.getExpenseInformation());
+            assertEquals(250000L, expensePayment2.getPaymentAmount());
+            assertEquals("Water", expensePayment2.getExpenseType());
+            assertEquals("This is for expense water 2020 Jan", expensePayment2.getPaymentInformation());
+            assertEquals("Rekening : 12344567", expensePayment2.getExpenseInformation());
 
-            List<ExpensePayment> expensePayments2020Feb = expensePaymentRepository.findByPaymentTimestamp(202002L);
+            List<ExpensePayment> expensePayments2020Feb = expensePaymentRepository.findByPaymentTimestampOrderByExpenseType(202002L);
             assertEquals(1, expensePayments2020Feb.size());
 
             ExpensePayment expensePayment3 = expensePayments2020Feb.get(0);

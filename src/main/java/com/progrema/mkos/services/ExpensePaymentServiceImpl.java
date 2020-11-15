@@ -25,7 +25,7 @@ public class ExpensePaymentServiceImpl implements ExpensePaymentService {
         for (long i = Long.parseLong(startMonth); i <= Long.parseLong(endMonth); i++) {
             long timestamp = timestampService.timestamp(year, i);
             ExpensePaymentWrapper expensePaymentWrapper = new ExpensePaymentWrapper(timestamp);
-            expensePaymentRepository.findByPaymentTimestamp(timestamp).forEach(expensePaymentWrapper::addExpensePayment);
+            expensePaymentRepository.findByPaymentTimestampOrderByExpenseType(timestamp).forEach(expensePaymentWrapper::addExpensePayment);
             expensePaymentWrappers.add(expensePaymentWrapper);
         }
         return expensePaymentWrappers;
