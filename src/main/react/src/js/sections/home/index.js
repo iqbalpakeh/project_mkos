@@ -9,6 +9,7 @@ import {
 
 import Header from "../../components/Header";
 import Income from "./Income";
+import Expense from "./Expense";
 
 class Index extends Component {
 	componentDidMount() {
@@ -29,6 +30,7 @@ class Index extends Component {
 			<div>
 				<Header icon="fas fa-home" title="Home" />
 				<Income />
+				<Expense />
 			</div>
 		);
 	}
