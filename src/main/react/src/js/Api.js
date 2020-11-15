@@ -1,36 +1,48 @@
 import axios from "axios";
 
-export const fetchIncomePayments = ({ year, startMonth, endMonth }) => {
+import { addNetIncome } from "./redux/Action";
+
+export const fetchIncomePayments = ({
+	year,
+	startMonth,
+	endMonth,
+	dispatch,
+}) => {
 	axios({
 		method: "GET",
 		url: `/api/income-payments-range?year=${year}&startMonth=${startMonth}&endMonth=${endMonth}`,
 	}).then(
 		(response) => {
-			console.log(response.data);
+			// console.log(response.data);
 		},
 		(error) => console.log(error)
 	);
 };
 
-export const fetchExpensePayments = ({ year, startMonth, endMonth }) => {
+export const fetchExpensePayments = ({
+	year,
+	startMonth,
+	endMonth,
+	dispatch,
+}) => {
 	axios({
 		method: "GET",
 		url: `/api/expense-payments-range?year=${year}&startMonth=${startMonth}&endMonth=${endMonth}`,
 	}).then(
 		(response) => {
-			console.log(response.data);
+			// console.log(response.data);
 		},
 		(error) => console.log(error)
 	);
 };
 
-export const fetchNetIncomes = ({ year, startMonth, endMonth }) => {
+export const fetchNetIncomes = ({ year, startMonth, endMonth, dispatch }) => {
 	axios({
 		method: "GET",
 		url: `/api/net-income-range?year=${year}&startMonth=${startMonth}&endMonth=${endMonth}`,
 	}).then(
 		(response) => {
-			console.log(response.data);
+			dispatch(addNetIncome(response.data));
 		},
 		(error) => console.log(error)
 	);

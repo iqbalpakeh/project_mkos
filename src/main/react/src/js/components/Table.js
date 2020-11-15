@@ -27,7 +27,11 @@ class Table extends Component {
 											return (
 												<tr key={index}>
 													{entry.map((data, index) => {
-														return <td key={index}>{data}</td>;
+														return (
+															<td key={index}>
+																<p className="text-left">{data}</p>
+															</td>
+														);
 													})}
 												</tr>
 											);
