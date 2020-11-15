@@ -11,7 +11,7 @@ import javax.persistence.Id;
 @Entity
 @Getter
 @Setter
-public class IncomePayment {
+public class RevenuePayment {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -43,7 +43,7 @@ public class IncomePayment {
 
     @Override
     public String toString() {
-        return "IncomePayment{" +
+        return "RevenuePayment{" +
                 "id=" + id +
                 ", paymentTimestamp=" + paymentTimestamp +
                 ", paymentAmount=" + paymentAmount +
@@ -55,5 +55,4 @@ public class IncomePayment {
                 ", tenantPhone='" + tenantPhone + '\'' +
                 '}';
     }
-
 }

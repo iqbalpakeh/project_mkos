@@ -19,7 +19,7 @@ create table expense_payment(
     expense_information varchar(100)
 );
 
-create table income_payment(
+create table revenue_payment(
 	id int primary key auto_increment,
     payment_timestamp int,
     payment_amount int,
@@ -61,7 +61,7 @@ select * from expense;
 
 select * from expense_payment;
 
-select * from income_payment;
+select * from revenue_payment;
 
 select * from room;
 
