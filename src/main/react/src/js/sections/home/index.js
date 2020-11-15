@@ -8,7 +8,7 @@ class Index extends Component {
 		fetchIncomePayments({
 			year: "2020",
 			startMonth: "09",
-			endMonth: "11",
+			endMonth: "09",
 		});
 
 		fetchExpensePayments({
