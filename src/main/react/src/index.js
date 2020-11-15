@@ -4,12 +4,16 @@ import "./sass/custom.scss";
 
 import React from "react";
 import ReactDOM from "react-dom";
+import { Provider } from "react-redux";
 
 import App from "./js/App";
+import Store from "./js/redux/Store";
 
 ReactDOM.render(
-	<React.StrictMode>
-		<App />
-	</React.StrictMode>,
+	<Provider store={Store}>
+		<React.StrictMode>
+			<App />
+		</React.StrictMode>
+	</Provider>,
 	document.getElementById("root")
 );
