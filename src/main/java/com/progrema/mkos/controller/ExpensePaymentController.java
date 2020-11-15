@@ -17,11 +17,6 @@ public class ExpensePaymentController {
         this.expensePaymentService = expensePaymentService;
     }
 
-    @GetMapping("/api/expense-payments")
-    public List<ExpensePaymentWrapper> getExpensePayments() {
-        return expensePaymentService.getExpensePayments();
-    }
-
     @GetMapping("/api/expense-payments-range")
     public List<ExpensePaymentWrapper> getExpensePayments(@RequestParam String year,
                                                           @RequestParam String startMonth,

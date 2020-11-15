@@ -20,22 +20,13 @@ public class ExpensePaymentServiceImpl implements ExpensePaymentService {
     }
 
     @Override
-    public List<ExpensePaymentWrapper> getExpensePayments() {
-        List<ExpensePaymentWrapper> expensePaymentWrappers = new ArrayList<>();
-        expensePaymentRepository.findAll().forEach(expensePayment -> {
-            expensePaymentWrappers.add(new ExpensePaymentWrapper(expensePayment));
-        });
-        return expensePaymentWrappers;
-    }
-
-    @Override
     public List<ExpensePaymentWrapper> getExpensePayments(String year, String startMonth, String endMonth) {
         List<ExpensePaymentWrapper> expensePaymentWrappers = new ArrayList<>();
         for (long i = Long.parseLong(startMonth); i <= Long.parseLong(endMonth); i++) {
             long timestamp = timestampService.timestamp(year, i);
-            expensePaymentRepository.findByPaymentTimestamp(timestamp).forEach(expensePayment -> {
-                expensePaymentWrappers.add(new ExpensePaymentWrapper(expensePayment));
-            });
+            ExpensePaymentWrapper expensePaymentWrapper = new ExpensePaymentWrapper(timestamp);
+            expensePaymentRepository.findByPaymentTimestamp(timestamp).forEach(expensePaymentWrapper::addExpenses);
+            expensePaymentWrappers.add(expensePaymentWrapper);
         }
         return expensePaymentWrappers;
     }
