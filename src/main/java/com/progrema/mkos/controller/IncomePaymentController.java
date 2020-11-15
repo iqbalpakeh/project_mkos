@@ -3,6 +3,7 @@ package com.progrema.mkos.controller;
 import com.progrema.mkos.entities.wrapper.IncomePaymentWrapper;
 import com.progrema.mkos.services.IncomePaymentService;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -19,5 +20,12 @@ public class IncomePaymentController {
     @GetMapping("/api/income-payments")
     public List<IncomePaymentWrapper> getIncomePayments() {
         return incomePaymentService.getIncomePayments();
+    }
+
+    @GetMapping("/api/income-payments-range")
+    public List<IncomePaymentWrapper> getIncomePayments(@RequestParam String year,
+                                                        @RequestParam String startMonth,
+                                                        @RequestParam String endMonth) {
+        return incomePaymentService.getIncomePayments(year, startMonth, endMonth);
     }
 }

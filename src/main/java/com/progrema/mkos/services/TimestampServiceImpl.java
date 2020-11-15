@@ -6,7 +6,11 @@ import org.springframework.stereotype.Service;
 public class TimestampServiceImpl implements TimestampService {
 
     @Override
-    public String convertMonth(long index) {
+    public long timestamp(String year, long month) {
+        return Long.parseLong(year + toMonthString(month));
+    }
+
+    private String toMonthString(long index) {
         switch ((int) index) {
             case 1: return "01";
             case 2: return "02";

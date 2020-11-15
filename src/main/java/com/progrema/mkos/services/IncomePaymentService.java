@@ -8,4 +8,6 @@ public interface IncomePaymentService {
 
     List<IncomePaymentWrapper> getIncomePayments();
 
+    List<IncomePaymentWrapper> getIncomePayments(String year, String startMonth, String endMonth);
+
 }

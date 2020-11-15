@@ -22,7 +22,7 @@ public class ExpensePaymentController {
         return expensePaymentService.getExpensePayments();
     }
 
-    @GetMapping("/api/expense-payments-ranges")
+    @GetMapping("/api/expense-payments-range")
     public List<ExpensePaymentWrapper> getExpensePayments(@RequestParam String year,
                                                           @RequestParam String startMonth,
                                                           @RequestParam String endMonth) {

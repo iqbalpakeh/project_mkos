@@ -11,9 +11,12 @@ import java.util.List;
 public class IncomePaymentServiceImpl implements IncomePaymentService {
 
     private final IncomePaymentRepository incomePaymentRepository;
+    private final TimestampService timestampService;
 
-    public IncomePaymentServiceImpl(IncomePaymentRepository incomePaymentRepository) {
+    public IncomePaymentServiceImpl(IncomePaymentRepository incomePaymentRepository,
+                                    TimestampService timestampService) {
         this.incomePaymentRepository = incomePaymentRepository;
+        this.timestampService = timestampService;
     }
 
     @Override
@@ -22,6 +25,18 @@ public class IncomePaymentServiceImpl implements IncomePaymentService {
         incomePaymentRepository.findAll().forEach(incomePayment -> {
             incomePaymentWrappers.add(new IncomePaymentWrapper(incomePayment));
         });
+        return incomePaymentWrappers;
+    }
+
+    @Override
+    public List<IncomePaymentWrapper> getIncomePayments(String year, String startMonth, String endMonth) {
+        List<IncomePaymentWrapper> incomePaymentWrappers = new ArrayList<>();
+        for (long i = Long.parseLong(startMonth); i <= Long.parseLong(endMonth); i++) {
+            long timestamp = timestampService.timestamp(year, i);
+            incomePaymentRepository.findByPaymentTimestamp(timestamp).forEach(incomePayment -> {
+                incomePaymentWrappers.add(new IncomePaymentWrapper(incomePayment));
+            });
+        }
         return incomePaymentWrappers;
     }
 }
