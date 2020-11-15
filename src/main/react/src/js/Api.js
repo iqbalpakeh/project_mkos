@@ -23,3 +23,15 @@ export const fetchExpensePayments = ({ year, startMonth, endMonth }) => {
 		(error) => console.log(error)
 	);
 };
+
+export const fetchNetIncomes = ({ year, startMonth, endMonth }) => {
+	axios({
+		method: "GET",
+		url: `/api/net-income-range?year=${year}&startMonth=${startMonth}&endMonth=${endMonth}`,
+	}).then(
+		(response) => {
+			console.log(response.data);
+		},
+		(error) => console.log(error)
+	);
+};

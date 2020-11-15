@@ -1,6 +1,11 @@
 import React, { Component } from "react";
 
-import { fetchIncomePayments, fetchExpensePayments } from "../../Api";
+import {
+	fetchIncomePayments,
+	fetchExpensePayments,
+	fetchNetIncomes,
+} from "../../Api";
+
 import Header from "../../components/Header";
 
 class Index extends Component {
@@ -12,6 +17,12 @@ class Index extends Component {
 		});
 
 		fetchExpensePayments({
+			year: "2020",
+			startMonth: "09",
+			endMonth: "11",
+		});
+
+		fetchNetIncomes({
 			year: "2020",
 			startMonth: "09",
 			endMonth: "11",
