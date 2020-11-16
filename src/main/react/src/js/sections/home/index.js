@@ -11,13 +11,14 @@ import {
 import Header from "../../components/Header";
 import Income from "./Income";
 import Expense from "./Expense";
+import Revenue from "./Revenue";
 
 class Index extends Component {
 	componentDidMount() {
 		const filter = {
 			year: "2020",
 			startMonth: "09",
-			endMonth: "11",
+			endMonth: "12",
 			dispatch: this.props.dispatch,
 		};
 
@@ -34,6 +35,7 @@ class Index extends Component {
 				<Header icon="fas fa-home" title="Home" />
 				<Income />
 				<Expense />
+				<Revenue />
 			</div>
 		);
 	}
