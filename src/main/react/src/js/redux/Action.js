@@ -2,6 +2,7 @@ export const ADD_INCOME = "ADD_INCOME";
 export const ADD_EXPENSE = "ADD_EXPENSE";
 export const ADD_EXPENSE_TYPE = "ADD_EXPENSE_TYPE";
 export const ADD_ROOM = "ADD_ROOM";
+export const ADD_REVENUE = "ADD_REVENUE";
 
 export const addIncome = (income) => ({
 	type: ADD_INCOME,
@@ -21,4 +22,9 @@ export const addExpenseType = (expenseType) => ({
 export const addRoom = (room) => ({
 	type: ADD_ROOM,
 	payload: room,
+});
+
+export const addRevenue = (revenue) => ({
+	type: ADD_REVENUE,
+	payload: revenue,
 });
