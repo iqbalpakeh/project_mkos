@@ -1,6 +1,6 @@
 import axios from "axios";
 
-import { addIncome, addExpense } from "./redux/Action";
+import { addIncome, addExpense, addExpenseType } from "./redux/Action";
 
 export const fetchRevenuePayments = ({
 	year,
@@ -31,6 +31,18 @@ export const fetchExpensePayments = ({
 	}).then(
 		(response) => {
 			dispatch(addExpense(response.data));
+		},
+		(error) => console.log(error)
+	);
+};
+
+export const fetchExpenseTypes = (dispatch) => {
+	axios({
+		method: "GET",
+		url: `/api/expenses`,
+	}).then(
+		(response) => {
+			dispatch(addExpenseType(response.data));
 		},
 		(error) => console.log(error)
 	);

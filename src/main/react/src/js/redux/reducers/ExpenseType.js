@@ -1,22 +1,22 @@
-import { ADD_EXPENSE } from "../Action";
+import { ADD_EXPENSE_TYPE } from "../Action";
 
 const initState = {
-	expenses: [],
+	expenseTypes: [],
 };
 
 export default function (state = initState, action) {
 	switch (action.type) {
-		case ADD_EXPENSE:
-			return addExpense(state, action);
+		case ADD_EXPENSE_TYPE:
+			return addExpenseType(state, action);
 		default:
 			return state;
 	}
 
-	function addExpense(state, action) {
+	function addExpenseType(state, action) {
 		// Function just store the latest incomes from DB. Thus,
 		// it's not store previous state.
 		return {
-			expenses: action.payload,
+			expenseTypes: action.payload,
 		};
 	}
 }

@@ -8,9 +8,8 @@ export default function (state = initState, action) {
 	switch (action.type) {
 		case ADD_INCOME:
 			return addIncome(state, action);
-		default: {
+		default:
 			return state;
-		}
 	}
 
 	function addIncome(state, action) {

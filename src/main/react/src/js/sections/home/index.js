@@ -5,6 +5,7 @@ import {
 	fetchRevenuePayments,
 	fetchExpensePayments,
 	fetchIncomes,
+	fetchExpenseTypes,
 } from "../../Api";
 
 import Header from "../../components/Header";
@@ -23,6 +24,8 @@ class Index extends Component {
 		fetchRevenuePayments(filter);
 		fetchExpensePayments(filter);
 		fetchIncomes(filter);
+
+		fetchExpenseTypes(this.props.dispatch);
 	}
 
 	render() {
