@@ -50,7 +50,6 @@ class Income extends Component {
 		const totalExpense = ["Total Expense"];
 		const totalIncome = ["Total Income"];
 
-		console.log(income);
 		income.incomes.map((element) => {
 			totalRevenue.push(element.income.totalRevenue);
 			totalExpense.push(element.income.totalExpense);

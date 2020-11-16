@@ -16,12 +16,12 @@ class Expense extends Component {
 		);
 	}
 
-	buildTableInput({ expense }) {
+	buildTableInput({ expense, expenseType }) {
 		if (expense.expenses.length > 0) {
 			return {
 				cardHeader: this.buildCardHeader(expense),
 				tableHeader: this.buildTableHeader(expense),
-				tableEntry: this.buildTableEntry(expense),
+				tableEntry: this.buildTableEntry(expense, expenseType),
 			};
 		} else {
 			return {
@@ -44,8 +44,25 @@ class Expense extends Component {
 		return tableHeader;
 	}
 
-	buildTableEntry(expense) {
-		return [];
+	buildTableEntry(expense, expenseType) {
+		const entry = [];
+		expenseType.expenseTypes.map((element1) => {
+			const row = [];
+			row.push(element1.expense.expenseType);
+			expense.expenses.map((element2) => {
+				if (element2.expenses.length > 0) {
+					element2.expenses.map((element3) => {
+						if (element3.expenseType == element1.expense.expenseType) {
+							row.push(element3.paymentAmount);
+						}
+					});
+				} else {
+					row.push(0);
+				}
+			});
+			entry.push(row);
+		});
+		return entry;
 	}
 }
 
