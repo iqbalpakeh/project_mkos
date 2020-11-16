@@ -37,7 +37,7 @@ class Income extends Component {
 	}
 
 	buildTableHeader(income) {
-		let tableHeader = ["Items"];
+		const tableHeader = ["Items"];
 		income.incomes.map((income) => {
 			tableHeader.push(getMonth(income.income.timestamp));
 		});
@@ -45,10 +45,10 @@ class Income extends Component {
 	}
 
 	buildTableEntry(income) {
-		let entries = [];
-		let totalRevenue = ["Total Revenue"];
-		let totalExpense = ["Total Expense"];
-		let totalIncome = ["Total Income"];
+		const entries = [];
+		const totalRevenue = ["Total Revenue"];
+		const totalExpense = ["Total Expense"];
+		const totalIncome = ["Total Income"];
 
 		console.log(income);
 		income.incomes.map((element) => {

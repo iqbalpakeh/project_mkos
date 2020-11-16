@@ -37,7 +37,7 @@ class Expense extends Component {
 	}
 
 	buildTableHeader(expense) {
-		let tableHeader = ["Expenses"];
+		const tableHeader = ["Expenses"];
 		expense.expenses.map((element) => {
 			tableHeader.push(getMonth(element.timestamp));
 		});
