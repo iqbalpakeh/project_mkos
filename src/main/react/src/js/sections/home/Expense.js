@@ -50,15 +50,14 @@ class Expense extends Component {
 			const row = [];
 			row.push(element1.expense.expenseType);
 			expense.expenses.map((element2) => {
-				if (element2.expenses.length > 0) {
-					element2.expenses.map((element3) => {
-						if (element3.expenseType == element1.expense.expenseType) {
-							row.push(element3.paymentAmount);
-						}
-					});
-				} else {
+				if (element2.expenses.length == 0) {
 					row.push(0);
 				}
+				element2.expenses.map((element3) => {
+					if (element3.expenseType == element1.expense.expenseType) {
+						row.push(element3.paymentAmount);
+					}
+				});
 			});
 			entry.push(row);
 		});
