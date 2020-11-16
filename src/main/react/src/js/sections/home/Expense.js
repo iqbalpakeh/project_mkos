@@ -33,9 +33,7 @@ class Expense extends Component {
 	}
 
 	buildCardHeader(expense) {
-		return `${getYear(
-			expense.expenses[0].expensePayment.paymentTimestamp
-		)} Monthly Expense`;
+		return `${getYear(expense.expenses[0].timestamp)} Monthly Expense`;
 	}
 
 	buildTableHeader(expense) {
