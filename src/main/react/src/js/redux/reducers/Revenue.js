@@ -7,7 +7,7 @@ const initState = {
 export default function (state = initState, action) {
 	switch (action.type) {
 		case ADD_REVENUE:
-			return;
+			return addRevenue(state, action);
 		default:
 			return state;
 	}
