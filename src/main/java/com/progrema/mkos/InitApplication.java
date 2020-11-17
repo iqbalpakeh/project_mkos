@@ -294,7 +294,7 @@ public class InitApplication implements CommandLineRunner {
         revenuePayment9.setPaymentTimestamp(202009L);
         revenuePayment9.setPaymentAmount(550000L);
         revenuePayment9.setPaymentInformation("Income payment from Room L");
-        revenuePayment9.setRoomNumber("K");
+        revenuePayment9.setRoomNumber("L");
         revenuePayment9.setRoomRate(550000L);
         revenuePayment9.setRoomInformation("Room number L");
         revenuePayment9.setTenantName("Irgi");
@@ -305,7 +305,7 @@ public class InitApplication implements CommandLineRunner {
         revenuePayment10.setPaymentTimestamp(202010L);
         revenuePayment10.setPaymentAmount(550000L);
         revenuePayment10.setPaymentInformation("Income payment from Room L");
-        revenuePayment10.setRoomNumber("K");
+        revenuePayment10.setRoomNumber("L");
         revenuePayment10.setRoomRate(550000L);
         revenuePayment10.setRoomInformation("Room number L");
         revenuePayment10.setTenantName("Irgi");
