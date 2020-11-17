@@ -17,7 +17,6 @@ class Revenue extends Component {
 	}
 
 	buildTableInput({ revenue, room }) {
-		console.log(revenue);
 		if (revenue.revenues.length > 0) {
 			return {
 				cardHeader: this.buildCardHeader(revenue),
@@ -45,8 +44,30 @@ class Revenue extends Component {
 		return tableHeader;
 	}
 
-	buildTableEntry(expense, expenseType) {
-		return [];
+	buildTableEntry(revenue, room) {
+		const entry = [];
+		room.rooms.map((element1) => {
+			const row = [];
+			row.push(`Room ${element1.room.roomNumber}`);
+			revenue.revenues.map((element2) => {
+				// If room number is on the payment list
+				element2.revenuePayments.map((element3) => {
+					if (element1.room.roomNumber == element3.roomNumber) {
+						row.push(element3.paymentAmount);
+					}
+				});
+				// If room number is not on the payment list
+				if (
+					!element2.revenuePayments.some(
+						(element2) => element2.roomNumber == element1.room.roomNumber
+					)
+				) {
+					row.push(0);
+				}
+			});
+			entry.push(row);
+		});
+		return entry;
 	}
 }
 
