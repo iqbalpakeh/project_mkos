@@ -1,4 +1,4 @@
-import { ADD_EXPENSE } from "../Action";
+import { ADD_TENANT } from "../Action";
 
 const initState = {
 	tenants: [],

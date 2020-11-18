@@ -32,5 +32,5 @@ export const addRevenue = (revenue) => ({
 
 export const addTenant = (tenant) => ({
 	type: ADD_TENANT,
-	payload: revenue,
+	payload: tenant,
 });

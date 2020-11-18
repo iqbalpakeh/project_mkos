@@ -67,3 +67,13 @@ export const fetchRooms = (dispatch) => {
 		(error) => console.log(error)
 	);
 };
+
+export const fetchTenants = (dispatch) => {
+	axios({
+		method: "GET",
+		url: `api/tenants`,
+	}).then(
+		(response) => console.log(response.data),
+		(error) => console.log(error.data)
+	);
+};
