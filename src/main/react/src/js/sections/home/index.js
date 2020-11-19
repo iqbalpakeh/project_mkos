@@ -18,7 +18,7 @@ class Index extends Component {
 	componentDidMount() {
 		const filter = {
 			year: "2020",
-			startMonth: "07",
+			startMonth: "09",
 			endMonth: "10",
 			dispatch: this.props.dispatch,
 		};

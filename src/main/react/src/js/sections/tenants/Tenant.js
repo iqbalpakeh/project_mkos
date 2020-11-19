@@ -32,16 +32,16 @@ class Tenant extends Component {
 	}
 
 	buildTableHeader(tenant) {
-		return ["Name", "Phone", "Room", "Checkin"];
+		return ["Room", "Name", "Phone", "Checkin"];
 	}
 
 	buildTableEntry(tenant) {
 		const entry = [];
 		tenant.tenants.forEach((element) => {
 			const row = [];
+			row.push(element.room);
 			row.push(element.tenant.tenantName);
 			row.push(element.tenant.tenantPhone);
-			row.push(element.room);
 			row.push(element.tenant.checkin);
 			entry.push(row);
 		});
