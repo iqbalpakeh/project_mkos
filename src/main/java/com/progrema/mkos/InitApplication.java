@@ -111,7 +111,7 @@ public class InitApplication implements CommandLineRunner {
         {
             Tenant tenant = new Tenant();
             tenant.setTenantName("Lucky");
-            tenant.setTenantPhone("0898-222-6396");
+            tenant.setTenantPhone("08982226396");
             tenant.setCheckin(202009L);
             tenantRepository.save(tenant);
         }

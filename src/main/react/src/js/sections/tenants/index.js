@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 
 import { fetchTenants } from "../../Api";
 
@@ -20,4 +21,4 @@ class Index extends Component {
 	}
 }
 
-export default Index;
+export default connect(null, null)(Index);

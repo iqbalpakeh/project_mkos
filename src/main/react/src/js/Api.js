@@ -6,6 +6,7 @@ import {
 	addExpenseType,
 	addRevenue,
 	addRoom,
+	addTenant,
 } from "./redux/Action";
 
 export const fetchRevenuePayments = ({
@@ -73,7 +74,7 @@ export const fetchTenants = (dispatch) => {
 		method: "GET",
 		url: `api/tenants`,
 	}).then(
-		(response) => console.log(response.data),
+		(response) => dispatch(addTenant(response.data)),
 		(error) => console.log(error.data)
 	);
 };
