@@ -1,6 +1,6 @@
 package com.progrema.mkos.repositories;
 
-import com.progrema.mkos.entities.model.RevenuePayment;
+import com.progrema.mkos.entities.RevenuePayment;
 import org.springframework.data.repository.PagingAndSortingRepository;
 
 import java.util.List;

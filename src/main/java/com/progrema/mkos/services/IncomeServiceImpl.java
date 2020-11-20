@@ -1,9 +1,9 @@
 package com.progrema.mkos.services;
 
-import com.progrema.mkos.entities.model.ExpensePayment;
-import com.progrema.mkos.entities.model.RevenuePayment;
-import com.progrema.mkos.entities.model.Income;
-import com.progrema.mkos.entities.wrapper.IncomeWrapper;
+import com.progrema.mkos.entities.ExpensePayment;
+import com.progrema.mkos.entities.RevenuePayment;
+import com.progrema.mkos.entities.Income;
+import com.progrema.mkos.controller.income.IncomeWrapper;
 import com.progrema.mkos.repositories.ExpensePaymentRepository;
 import com.progrema.mkos.repositories.RevenuePaymentRepository;
 import org.springframework.stereotype.Service;

@@ -1,4 +1,4 @@
-package com.progrema.mkos.entities.model;
+package com.progrema.mkos.entities;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -11,21 +11,11 @@ import javax.persistence.Id;
 @Entity
 @Getter
 @Setter
-public class ExpensePayment {
+public class Expense {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    private Long paymentTimestamp;
-
-    private Long paymentAmount;
-
-    private String paymentInformation;
-
-    // -----------------------------
-    // Expense property's log
-    // -----------------------------
 
     private String expenseType;
 
@@ -33,14 +23,12 @@ public class ExpensePayment {
 
     @Override
     public String toString() {
-        return "ExpensePayment{" +
+        return "Expense{" +
                 "id=" + id +
-                ", paymentTimestamp=" + paymentTimestamp +
-                ", paymentAmount=" + paymentAmount +
-                ", paymentInformation='" + paymentInformation + '\'' +
                 ", expenseType='" + expenseType + '\'' +
                 ", expenseInformation='" + expenseInformation + '\'' +
                 '}';
     }
 
 }
+

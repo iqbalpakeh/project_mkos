@@ -1,6 +1,5 @@
-package com.progrema.mkos.controller;
+package com.progrema.mkos.controller.room;
 
-import com.progrema.mkos.entities.wrapper.RoomWrapper;
 import com.progrema.mkos.services.RoomService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;

@@ -1,6 +1,6 @@
-package com.progrema.mkos.controller;
+package com.progrema.mkos.controller.tenant;
 
-import com.progrema.mkos.entities.wrapper.TenantWrapper;
+import com.progrema.mkos.controller.tenant.TenantWrapper;
 import com.progrema.mkos.services.TenantService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;

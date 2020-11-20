@@ -1,6 +1,6 @@
 package com.progrema.mkos.services;
 
-import com.progrema.mkos.entities.wrapper.ExpensePaymentWrapper;
+import com.progrema.mkos.controller.expensepayment.ExpensePaymentWrapper;
 import com.progrema.mkos.repositories.ExpensePaymentRepository;
 import org.springframework.stereotype.Service;
 

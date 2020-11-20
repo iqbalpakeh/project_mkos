@@ -1,6 +1,6 @@
 package com.progrema.mkos;
 
-import com.progrema.mkos.entities.model.*;
+import com.progrema.mkos.entities.*;
 import com.progrema.mkos.repositories.*;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;

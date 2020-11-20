@@ -1,8 +1,7 @@
-package com.progrema.mkos.entities.wrapper;
+package com.progrema.mkos.controller.revenuepayment;
 
-import com.progrema.mkos.entities.model.RevenuePayment;
+import com.progrema.mkos.entities.RevenuePayment;
 import lombok.Getter;
-import lombok.Setter;
 
 import java.util.ArrayList;
 import java.util.List;

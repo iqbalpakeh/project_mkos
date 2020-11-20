@@ -1,6 +1,6 @@
 package com.progrema.mkos;
-import com.progrema.mkos.entities.model.Room;
-import com.progrema.mkos.entities.model.Tenant;
+import com.progrema.mkos.entities.Room;
+import com.progrema.mkos.entities.Tenant;
 import com.progrema.mkos.repositories.RoomRepository;
 import com.progrema.mkos.repositories.TenantRepository;
 import org.junit.jupiter.api.BeforeEach;

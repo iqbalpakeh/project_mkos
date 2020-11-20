@@ -1,6 +1,6 @@
 package com.progrema.mkos;
 
-import com.progrema.mkos.entities.model.TenantLog;
+import com.progrema.mkos.entities.TenantLog;
 import com.progrema.mkos.repositories.TenantLogRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
