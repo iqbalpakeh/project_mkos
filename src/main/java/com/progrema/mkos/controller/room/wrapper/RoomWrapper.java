@@ -1,4 +1,4 @@
-package com.progrema.mkos.controller.room;
+package com.progrema.mkos.controller.room.wrapper;
 
 import com.progrema.mkos.entities.Room;
 import lombok.Getter;

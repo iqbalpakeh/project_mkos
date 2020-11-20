@@ -1,6 +1,6 @@
 package com.progrema.mkos.services;
 
-import com.progrema.mkos.controller.room.RoomWrapper;
+import com.progrema.mkos.controller.room.wrapper.RoomWrapper;
 
 import java.util.List;
 
