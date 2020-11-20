@@ -1,6 +1,6 @@
 package com.progrema.mkos.services;
 
-import com.progrema.mkos.controller.revenuepayment.wrapper.RevenuePaymentWrapper;
+import com.progrema.mkos.entities.revenuepayment.wrapper.RevenuePaymentWrapper;
 import com.progrema.mkos.repositories.RevenuePaymentRepository;
 import org.springframework.stereotype.Service;
 

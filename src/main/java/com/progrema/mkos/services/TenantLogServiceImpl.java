@@ -1,6 +1,6 @@
 package com.progrema.mkos.services;
 
-import com.progrema.mkos.controller.tenantlog.wrapper.TenantLogWrapper;
+import com.progrema.mkos.entities.tenantlog.wrapper.TenantLogWrapper;
 import com.progrema.mkos.repositories.TenantLogRepository;
 import org.springframework.stereotype.Service;
 

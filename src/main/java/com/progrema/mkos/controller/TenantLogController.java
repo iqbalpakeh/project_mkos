@@ -1,6 +1,6 @@
-package com.progrema.mkos.controller.tenantlog;
+package com.progrema.mkos.controller;
 
-import com.progrema.mkos.controller.tenantlog.wrapper.TenantLogWrapper;
+import com.progrema.mkos.entities.tenantlog.wrapper.TenantLogWrapper;
 import com.progrema.mkos.services.TenantLogService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;

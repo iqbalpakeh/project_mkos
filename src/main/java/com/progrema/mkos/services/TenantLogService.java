@@ -1,6 +1,6 @@
 package com.progrema.mkos.services;
 
-import com.progrema.mkos.controller.tenantlog.wrapper.TenantLogWrapper;
+import com.progrema.mkos.entities.tenantlog.wrapper.TenantLogWrapper;
 
 import java.util.List;
 

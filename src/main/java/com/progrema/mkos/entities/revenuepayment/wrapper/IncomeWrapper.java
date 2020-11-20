@@ -1,4 +1,4 @@
-package com.progrema.mkos.controller.income.wrapper;
+package com.progrema.mkos.entities.revenuepayment.wrapper;
 
 import com.progrema.mkos.entities.income.Income;
 import lombok.Getter;

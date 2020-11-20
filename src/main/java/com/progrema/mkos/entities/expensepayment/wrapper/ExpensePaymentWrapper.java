@@ -1,4 +1,4 @@
-package com.progrema.mkos.controller.expensepayment.wrapper;
+package com.progrema.mkos.entities.expensepayment.wrapper;
 
 import com.progrema.mkos.entities.expensepayment.ExpensePayment;
 import lombok.Getter;

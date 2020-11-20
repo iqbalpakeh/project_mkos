@@ -1,6 +1,6 @@
-package com.progrema.mkos.controller.revenuepayment;
+package com.progrema.mkos.controller;
 
-import com.progrema.mkos.controller.revenuepayment.wrapper.RevenuePaymentWrapper;
+import com.progrema.mkos.entities.revenuepayment.wrapper.RevenuePaymentWrapper;
 import com.progrema.mkos.services.RevenuePaymentService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;

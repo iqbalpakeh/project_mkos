@@ -1,6 +1,6 @@
-package com.progrema.mkos.controller.expense;
+package com.progrema.mkos.controller;
 
-import com.progrema.mkos.controller.expense.wrapper.ExpenseWrapper;
+import com.progrema.mkos.entities.expense.wrapper.ExpenseWrapper;
 import com.progrema.mkos.services.ExpenseService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;

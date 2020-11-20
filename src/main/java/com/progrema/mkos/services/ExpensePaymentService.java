@@ -1,6 +1,6 @@
 package com.progrema.mkos.services;
 
-import com.progrema.mkos.controller.expensepayment.wrapper.ExpensePaymentWrapper;
+import com.progrema.mkos.entities.expensepayment.wrapper.ExpensePaymentWrapper;
 
 import java.util.List;
 
