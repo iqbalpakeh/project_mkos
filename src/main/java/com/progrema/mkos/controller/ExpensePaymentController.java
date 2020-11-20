@@ -1,10 +1,10 @@
 package com.progrema.mkos.controller;
 
+import com.progrema.mkos.entities.expensepayment.ExpensePayment;
+import com.progrema.mkos.entities.expensepayment.wrapper.ExpensePaymentCreatorWrapper;
 import com.progrema.mkos.entities.expensepayment.wrapper.ExpensePaymentWrapper;
 import com.progrema.mkos.services.ExpensePaymentService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -24,14 +24,8 @@ public class ExpensePaymentController {
         return expensePaymentService.getExpensePayments(year, startMonth, endMonth);
     }
 
-    // ExpensePayment expensePayment1 = new ExpensePayment();
-    //     expensePayment1.setPaymentTimestamp(202009L);
-    //     expensePayment1.setPaymentAmount(309428L);
-    //     expensePayment1.setPaymentInformation("This is for expense water 2020 September");
-    //     expensePayment1.setExpenseType("Water Bill");
-    //     expensePayment1.setExpenseInformation("No Pelanggan: 535590803466");
-    //     expensePaymentRepository.save(expensePayment1);
-
-
-
+    @PostMapping("/api/expense-payments-create")
+    public ExpensePayment createRevenuePayment(@RequestBody ExpensePaymentCreatorWrapper expensePaymentCreatorWrapper) {
+        return expensePaymentService.createExpensePayment(expensePaymentCreatorWrapper);
+    }
 }
