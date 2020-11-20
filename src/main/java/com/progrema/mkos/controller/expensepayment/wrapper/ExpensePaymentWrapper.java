@@ -1,6 +1,6 @@
 package com.progrema.mkos.controller.expensepayment.wrapper;
 
-import com.progrema.mkos.entities.ExpensePayment;
+import com.progrema.mkos.entities.expensepayment.ExpensePayment;
 import lombok.Getter;
 
 import java.util.ArrayList;

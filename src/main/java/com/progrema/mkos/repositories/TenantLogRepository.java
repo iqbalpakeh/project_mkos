@@ -1,6 +1,6 @@
 package com.progrema.mkos.repositories;
 
-import com.progrema.mkos.entities.TenantLog;
+import com.progrema.mkos.entities.tenantlog.TenantLog;
 import org.springframework.data.repository.PagingAndSortingRepository;
 
 import java.util.List;

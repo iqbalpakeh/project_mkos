@@ -1,6 +1,11 @@
 package com.progrema.mkos;
 
-import com.progrema.mkos.entities.*;
+import com.progrema.mkos.entities.expense.Expense;
+import com.progrema.mkos.entities.expensepayment.ExpensePayment;
+import com.progrema.mkos.entities.revenuepayment.RevenuePayment;
+import com.progrema.mkos.entities.room.Room;
+import com.progrema.mkos.entities.tenant.Tenant;
+import com.progrema.mkos.entities.tenantlog.TenantLog;
 import com.progrema.mkos.repositories.*;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;

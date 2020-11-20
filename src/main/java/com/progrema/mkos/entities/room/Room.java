@@ -1,5 +1,6 @@
-package com.progrema.mkos.entities;
+package com.progrema.mkos.entities.room;
 
+import com.progrema.mkos.entities.tenant.Tenant;
 import lombok.Getter;
 import lombok.Setter;
 

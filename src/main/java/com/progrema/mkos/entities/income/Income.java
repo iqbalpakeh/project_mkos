@@ -1,4 +1,4 @@
-package com.progrema.mkos.entities;
+package com.progrema.mkos.entities.income;
 
 import lombok.Getter;
 import lombok.Setter;

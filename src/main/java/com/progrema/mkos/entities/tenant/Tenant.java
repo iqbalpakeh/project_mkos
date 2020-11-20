@@ -1,6 +1,7 @@
-package com.progrema.mkos.entities;
+package com.progrema.mkos.entities.tenant;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.progrema.mkos.entities.room.Room;
 import lombok.Getter;
 import lombok.Setter;
 

@@ -1,6 +1,6 @@
 package com.progrema.mkos.controller.tenant.wrapper;
 
-import com.progrema.mkos.entities.Tenant;
+import com.progrema.mkos.entities.tenant.Tenant;
 import lombok.Getter;
 import lombok.Setter;
 
