@@ -61,7 +61,12 @@ public class TenantServiceImpl implements TenantService {
         Room room = roomRepository.findByRoomNumber(wrapper.getRoomNumber()).get(0);
         Tenant tenant = room.getTenant();
         tenant.setCheckout(wrapper.getCheckout());
+
+        room.setTenant(null);
+        roomRepository.save(room);
+
         tenantLogRepository.save(new TenantLog(tenant));
-        return tenantRepository.save(tenant);
+        tenantRepository.delete(tenant);
+        return tenant;
     }
 }
