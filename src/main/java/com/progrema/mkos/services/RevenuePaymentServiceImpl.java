@@ -1,5 +1,7 @@
 package com.progrema.mkos.services;
 
+import com.progrema.mkos.entities.revenuepayment.RevenuePayment;
+import com.progrema.mkos.entities.revenuepayment.wrapper.RevenuePaymentCreatorWrapper;
 import com.progrema.mkos.entities.revenuepayment.wrapper.RevenuePaymentWrapper;
 import com.progrema.mkos.repositories.RevenuePaymentRepository;
 import org.springframework.stereotype.Service;
@@ -29,5 +31,20 @@ public class RevenuePaymentServiceImpl implements RevenuePaymentService {
             revenuePaymentWrappers.add(revenuePaymentWrapper);
         }
         return revenuePaymentWrappers;
+    }
+
+    @Override
+    public RevenuePayment createRevenuePayment(RevenuePaymentCreatorWrapper wrapper) {
+        // RevenuePayment revenuePayment1 = new RevenuePayment();
+        //     revenuePayment1.setPaymentTimestamp(202009L);
+        //     revenuePayment1.setPaymentAmount(600000L);
+        //     revenuePayment1.setPaymentInformation("Income payment from Room D");
+        //     revenuePayment1.setRoomNumber("D");
+        //     revenuePayment1.setRoomRate(600000L);
+        //     revenuePayment1.setRoomInformation("Room number D");
+        //     revenuePayment1.setTenantName("Moh Irfan B");
+        //     revenuePayment1.setTenantPhone("087812668017");
+        //     revenuePaymentRepository.save(revenuePayment1);
+        return null;
     }
 }

@@ -39,12 +39,12 @@ public class ExpensePaymentServiceImpl implements ExpensePaymentService {
     }
 
     @Override
-    public ExpensePayment createExpensePayment(ExpensePaymentCreatorWrapper expensePaymentCreatorWrapper) {
-        Expense expense = expenseRepository.findByExpenseType(expensePaymentCreatorWrapper.getExpenseType()).get(0);
+    public ExpensePayment createExpensePayment(ExpensePaymentCreatorWrapper wrapper) {
+        Expense expense = expenseRepository.findByExpenseType(wrapper.getExpenseType()).get(0);
         ExpensePayment expensePayment = new ExpensePayment();
-        expensePayment.setPaymentTimestamp(expensePaymentCreatorWrapper.getPaymentTimestamp());
-        expensePayment.setPaymentAmount(expensePaymentCreatorWrapper.getPaymentAmount());
-        expensePayment.setPaymentInformation(expensePaymentCreatorWrapper.getPaymentInformation());
+        expensePayment.setPaymentTimestamp(wrapper.getPaymentTimestamp());
+        expensePayment.setPaymentAmount(wrapper.getPaymentAmount());
+        expensePayment.setPaymentInformation(wrapper.getPaymentInformation());
         expensePayment.setExpenseType(expense.getExpenseType());
         expensePayment.setExpenseInformation(expense.getExpenseInformation());
         return expensePaymentRepository.save(expensePayment);

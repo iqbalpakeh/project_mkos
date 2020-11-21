@@ -25,7 +25,7 @@ public class ExpensePaymentController {
     }
 
     @PostMapping("/api/expense-payments-create")
-    public ExpensePayment createRevenuePayment(@RequestBody ExpensePaymentCreatorWrapper expensePaymentCreatorWrapper) {
-        return expensePaymentService.createExpensePayment(expensePaymentCreatorWrapper);
+    public ExpensePayment createRevenuePayment(@RequestBody ExpensePaymentCreatorWrapper wrapper) {
+        return expensePaymentService.createExpensePayment(wrapper);
     }
 }

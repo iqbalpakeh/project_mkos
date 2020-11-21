@@ -1,6 +1,8 @@
 package com.progrema.mkos.controller;
 
 import com.progrema.mkos.entities.expensepayment.wrapper.ExpensePaymentCreatorWrapper;
+import com.progrema.mkos.entities.revenuepayment.RevenuePayment;
+import com.progrema.mkos.entities.revenuepayment.wrapper.RevenuePaymentCreatorWrapper;
 import com.progrema.mkos.entities.revenuepayment.wrapper.RevenuePaymentWrapper;
 import com.progrema.mkos.services.RevenuePaymentService;
 import org.springframework.web.bind.annotation.*;
@@ -23,14 +25,8 @@ public class RevenuePaymentController {
         return revenuePaymentService.getRevenuePayments(year, startMonth, endMonth);
     }
 
-    // RevenuePayment revenuePayment1 = new RevenuePayment();
-    //     revenuePayment1.setPaymentTimestamp(202009L);
-    //     revenuePayment1.setPaymentAmount(600000L);
-    //     revenuePayment1.setPaymentInformation("Income payment from Room D");
-    //     revenuePayment1.setRoomNumber("D");
-    //     revenuePayment1.setRoomRate(600000L);
-    //     revenuePayment1.setRoomInformation("Room number D");
-    //     revenuePayment1.setTenantName("Moh Irfan B");
-    //     revenuePayment1.setTenantPhone("087812668017");
-    //     revenuePaymentRepository.save(revenuePayment1);
+    @PostMapping("/api/revenue-payments-create")
+    public RevenuePayment createRevenuePayment(@RequestBody RevenuePaymentCreatorWrapper wrapper) {
+        return revenuePaymentService.createRevenuePayment(wrapper);
+    }
 }
