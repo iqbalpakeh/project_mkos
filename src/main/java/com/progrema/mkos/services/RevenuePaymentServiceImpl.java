@@ -3,7 +3,10 @@ package com.progrema.mkos.services;
 import com.progrema.mkos.entities.revenuepayment.RevenuePayment;
 import com.progrema.mkos.entities.revenuepayment.wrapper.RevenuePaymentCreatorWrapper;
 import com.progrema.mkos.entities.revenuepayment.wrapper.RevenuePaymentWrapper;
+import com.progrema.mkos.entities.room.Room;
+import com.progrema.mkos.entities.tenant.Tenant;
 import com.progrema.mkos.repositories.RevenuePaymentRepository;
+import com.progrema.mkos.repositories.RoomRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -13,11 +16,14 @@ import java.util.List;
 public class RevenuePaymentServiceImpl implements RevenuePaymentService {
 
     private final RevenuePaymentRepository revenuePaymentRepository;
+    private final RoomRepository roomRepository;
     private final TimestampService timestampService;
 
     public RevenuePaymentServiceImpl(RevenuePaymentRepository revenuePaymentRepository,
+                                     RoomRepository roomRepository,
                                      TimestampService timestampService) {
         this.revenuePaymentRepository = revenuePaymentRepository;
+        this.roomRepository = roomRepository;
         this.timestampService = timestampService;
     }
 
@@ -35,16 +41,18 @@ public class RevenuePaymentServiceImpl implements RevenuePaymentService {
 
     @Override
     public RevenuePayment createRevenuePayment(RevenuePaymentCreatorWrapper wrapper) {
-        // RevenuePayment revenuePayment1 = new RevenuePayment();
-        //     revenuePayment1.setPaymentTimestamp(202009L);
-        //     revenuePayment1.setPaymentAmount(600000L);
-        //     revenuePayment1.setPaymentInformation("Income payment from Room D");
-        //     revenuePayment1.setRoomNumber("D");
-        //     revenuePayment1.setRoomRate(600000L);
-        //     revenuePayment1.setRoomInformation("Room number D");
-        //     revenuePayment1.setTenantName("Moh Irfan B");
-        //     revenuePayment1.setTenantPhone("087812668017");
-        //     revenuePaymentRepository.save(revenuePayment1);
-        return null;
+        Room room = roomRepository.findByRoomNumber(wrapper.getRoomNumber()).get(0);
+        Tenant tenant = room.getTenant();
+
+        RevenuePayment revenuePayment = new RevenuePayment();
+        revenuePayment.setPaymentTimestamp(wrapper.getPaymentTimestamp());
+        revenuePayment.setPaymentAmount(wrapper.getPaymentAmount());
+        revenuePayment.setPaymentInformation(wrapper.getPaymentInformation());
+        revenuePayment.setRoomNumber(room.getRoomNumber());
+        revenuePayment.setRoomRate(room.getRoomRate());
+        revenuePayment.setRoomInformation(room.getRoomInformation());
+        revenuePayment.setTenantName(tenant.getTenantName());
+        revenuePayment.setTenantPhone(tenant.getTenantPhone());
+        return revenuePaymentRepository.save(revenuePayment);
     }
 }
