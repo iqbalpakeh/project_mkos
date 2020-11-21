@@ -1,6 +1,6 @@
 package com.progrema.mkos.controller;
 
-import com.progrema.mkos.entities.revenuepayment.wrapper.IncomeWrapper;
+import com.progrema.mkos.entities.income.wrapper.IncomeWrapper;
 import com.progrema.mkos.services.IncomeService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;

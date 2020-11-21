@@ -47,6 +47,6 @@ public class ExpensePaymentServiceImpl implements ExpensePaymentService {
         expensePayment.setPaymentInformation(expensePaymentCreatorWrapper.getPaymentInformation());
         expensePayment.setExpenseType(expense.getExpenseType());
         expensePayment.setExpenseInformation(expense.getExpenseInformation());
-        return expensePayment;
+        return expensePaymentRepository.save(expensePayment);
     }
 }
