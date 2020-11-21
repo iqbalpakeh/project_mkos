@@ -88,7 +88,7 @@ export const createRevenuePayment = ({
 }) => {
 	axios({
 		method: "POST",
-		url: `api/revenue-payments-create`,
+		url: `/api/revenue-payments-create`,
 		data: {
 			paymentTimestamp,
 			paymentAmount,
@@ -110,7 +110,7 @@ export const createExpensePayment = ({
 }) => {
 	axios({
 		method: "POST",
-		url: `api/expense-payments-create`,
+		url: `/api/expense-payments-create`,
 		data: {
 			paymentTimestamp,
 			paymentAmount,

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-// import { createPayment } from "../../../Api";
+import { createRevenuePayment, createExpensePayment } from "../../../Api";
 import { getMonthNumber } from "../../../components/DateFormatter";
 
 import FormGroupYear from "../../../components/FormGroupYear";
@@ -71,13 +71,23 @@ class AddPaymentModal extends Component {
 	}
 
 	handleSubmitClick(event) {
-		// createPayment({
-		// 	amount: this.state.amount,
-		// 	type: this.state.type,
-		// 	item: this.state.item,
-		// 	paymentDate: `${this.state.year}${this.state.month}`,
-		// 	information: this.state.information,
-		// });
+		if (this.state.type == "Revenue") {
+			createRevenuePayment({
+				paymentTimestamp: `${this.state.year}${this.state.month}`,
+				paymentAmount: this.state.amount,
+				paymentInformation: this.state.information,
+				roomNumber: this.state.item,
+				dispatch: this.props.dispatch,
+			});
+		} else {
+			createExpensePayment({
+				paymentTimestamp: `${this.state.year}${this.state.month}`,
+				paymentAmount: this.state.amount,
+				paymentInformation: this.state.information,
+				expenseType: this.state.item,
+				dispatch: this.props.dispatch,
+			});
+		}
 		event.preventDefault();
 	}
 
@@ -126,7 +136,7 @@ class AddPaymentModal extends Component {
 											handleItemChange={this.handleItemChange}
 											defaultItem={this.state.item}
 											revenue={this.props.room.rooms}
-											expense={this.props.expense.expenses}
+											expense={this.props.expenseType.expenseTypes}
 											type={this.state.type}
 										/>
 									</form>
@@ -178,6 +188,8 @@ const FormGroupItem = ({
 	expense,
 	type,
 }) => {
+	console.log(revenue);
+	console.log(expense);
 	return (
 		<div className="form-group">
 			<label>Item</label>
@@ -188,15 +200,15 @@ const FormGroupItem = ({
 				{type === "Revenue"
 					? revenue.map((opVal, index) => {
 							return (
-								<option value={opVal.roomNumber} key={index}>
-									Room {opVal.roomNumber}
+								<option value={opVal.room.roomNumber} key={index}>
+									Room {opVal.room.roomNumber}
 								</option>
 							);
 					  })
 					: expense.map((opVal, index) => {
 							return (
-								<option value={opVal.expenseType} key={index}>
-									{opVal.expenseType}
+								<option value={opVal.expense.expenseType} key={index}>
+									{opVal.expense.expenseType}
 								</option>
 							);
 					  })}
