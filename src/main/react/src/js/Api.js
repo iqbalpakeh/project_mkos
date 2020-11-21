@@ -116,10 +116,31 @@ export const createExpensePayment = ({
 			paymentAmount,
 			paymentInformation,
 			expenseType,
-			dispatch,
 		},
 	}).then(
 		(response) => console.log(response.data),
 		(error) => console.log(error.data)
+	);
+};
+
+export const createTenant = ({
+	tenantName,
+	tenantPhone,
+	checkin,
+	roomNumber,
+	dispatch,
+}) => {
+	axios({
+		method: "POST",
+		url: "/api/tenants-create",
+		data: {
+			tenantName,
+			tenantPhone,
+			checkin,
+			roomNumber,
+		},
+	}).then(
+		(response) => console.log(response.data),
+		(error) => console.log(error)
 	);
 };
