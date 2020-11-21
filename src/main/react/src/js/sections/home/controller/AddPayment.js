@@ -188,8 +188,6 @@ const FormGroupItem = ({
 	expense,
 	type,
 }) => {
-	console.log(revenue);
-	console.log(expense);
 	return (
 		<div className="form-group">
 			<label>Item</label>

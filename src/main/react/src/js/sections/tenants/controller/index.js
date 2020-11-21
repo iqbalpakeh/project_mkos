@@ -1,6 +1,7 @@
 import React from "react";
 
 import AddTenant from "./AddTenant";
+import Checkout from "./Checkout";
 
 const index = () => {
 	return (
@@ -11,7 +12,9 @@ const index = () => {
 						<div className="col-md-3 mb-2">
 							<AddTenant />
 						</div>
-						<div className="col-md-3"></div>
+						<div className="col-md-3">
+							<Checkout />
+						</div>
 					</div>
 				</div>
 			</div>

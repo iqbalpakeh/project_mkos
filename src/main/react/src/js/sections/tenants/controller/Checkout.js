@@ -1,44 +1,25 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
-import { createTenant } from "../../../Api";
+// import { checkoutTenant } from "../../../Api";
 import { getMonthNumber } from "../../../components/DateFormatter";
 import FormGroupYear from "../../../components/FormGroupYear";
 import FormGroupMonth from "../../../components/FormGroupMonth";
-import FormGroupInput from "../../../components/FormGroupInput";
 import Submitter from "../../../components/Submitter";
 
-class AddTenant extends Component {
+class Checkout extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			name: "",
-			phone: "",
 			room: "",
 			month: "",
 			year: "",
 		};
 
-		this.handleNameChange = this.handleNameChange.bind(this);
-		this.handlePhoneChange = this.handlePhoneChange.bind(this);
 		this.handleRoomChange = this.handleRoomChange.bind(this);
 		this.handleYearChange = this.handleYearChange.bind(this);
 		this.handleMonthChange = this.handleMonthChange.bind(this);
 		this.handleSubmitClick = this.handleSubmitClick.bind(this);
-	}
-
-	handleNameChange(event) {
-		this.setState({
-			name: event.target.value,
-		});
-		event.preventDefault();
-	}
-
-	handlePhoneChange(event) {
-		this.setState({
-			phone: event.target.value,
-		});
-		event.preventDefault();
 	}
 
 	handleRoomChange(event) {
@@ -63,26 +44,22 @@ class AddTenant extends Component {
 	}
 
 	handleSubmitClick(event) {
-		createTenant({
-			tenantName: this.state.name,
-			tenantPhone: this.state.phone,
-			checkin: `${this.state.year}${this.state.month}`,
-			roomNumber: this.state.room,
-		});
+		// checkoutTenant({
+		// 	room: this.state.room,
+		// 	endDate: `${this.state.year}${this.state.month}`,
+		// });
 		event.preventDefault();
 	}
 
 	render() {
 		return (
 			<div>
-				<ButtonAddTenant />
-				<div className="modal fade" id="addTenantModal">
+				<ButtonCheckout />
+				<div className="modal fade" id="checkoutModal">
 					<div className="modal-dialog modal-lg">
 						<div className="modal-content">
 							<div className="modal-header bg-primary text-white">
-								<h5 className="modal-title">
-									Add tenant information and checkin date
-								</h5>
+								<h5 className="modal-title">Checkout tenant</h5>
 								<button className="close" data-dismiss="modal">
 									<span>&times;</span>
 								</button>
@@ -90,18 +67,6 @@ class AddTenant extends Component {
 							<div className="modal-body">
 								<div className="container-fluid">
 									<form>
-										<FormGroupInput
-											title="Name"
-											onChange={this.handleNameChange}
-											defaultValue={this.state.name}
-											type="text"
-										/>
-										<FormGroupInput
-											title="Phone"
-											onChange={this.handlePhoneChange}
-											defaultValue={this.state.phone}
-											type="number"
-										/>
 										<FormGroupRoom
 											onChange={this.handleRoomChange}
 											defaultValue={this.state.room}
@@ -134,14 +99,14 @@ class AddTenant extends Component {
 	}
 }
 
-const ButtonAddTenant = () => {
+const ButtonCheckout = () => {
 	return (
 		<a
 			href="#"
-			className="btn btn-primary btn-block"
+			className="btn btn-warning btn-block"
 			data-toggle="modal"
-			data-target="#addTenantModal">
-			<i className="fas fa-plus"></i> Add Tenant
+			data-target="#checkoutModal">
+			<i className="fas fa-sign-out-alt"></i> Checkout
 		</a>
 	);
 };
@@ -155,10 +120,10 @@ const FormGroupRoom = ({ onChange, defaultValue, rooms }) => {
 				onChange={onChange}
 				defaultValue={defaultValue}>
 				{rooms.map((opVal, index) => {
-					if (opVal.room.tenant == null) {
+					if (opVal.tenant != null) {
 						return (
-							<option value={opVal.room.roomNumber} key={index}>
-								Room {opVal.room.roomNumber}
+							<option value={opVal.roomNumber} key={index}>
+								Room {opVal.roomNumber}
 							</option>
 						);
 					}
@@ -172,4 +137,4 @@ const mapStateToProps = (state) => {
 	return state;
 };
 
-export default connect(mapStateToProps)(AddTenant);
+export default connect(mapStateToProps)(Checkout);

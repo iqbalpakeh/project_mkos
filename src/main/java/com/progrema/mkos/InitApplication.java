@@ -36,8 +36,8 @@ public class InitApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        // clearDatabase();
-        // populateDatabase02();
+        clearDatabase();
+        populateDatabase02();
     }
 
     private void clearDatabase() {
