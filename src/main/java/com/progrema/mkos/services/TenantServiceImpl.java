@@ -2,9 +2,12 @@ package com.progrema.mkos.services;
 
 import com.progrema.mkos.entities.room.Room;
 import com.progrema.mkos.entities.tenant.Tenant;
+import com.progrema.mkos.entities.tenant.wrapper.TenantCheckoutWrapper;
 import com.progrema.mkos.entities.tenant.wrapper.TenantCreatorWrapper;
 import com.progrema.mkos.entities.tenant.wrapper.TenantWrapper;
+import com.progrema.mkos.entities.tenantlog.TenantLog;
 import com.progrema.mkos.repositories.RoomRepository;
+import com.progrema.mkos.repositories.TenantLogRepository;
 import com.progrema.mkos.repositories.TenantRepository;
 import org.springframework.stereotype.Service;
 
@@ -15,11 +18,14 @@ import java.util.List;
 public class TenantServiceImpl implements TenantService {
 
     private final TenantRepository tenantRepository;
+    private final TenantLogRepository tenantLogRepository;
     private final RoomRepository roomRepository;
 
     public TenantServiceImpl(TenantRepository tenantRepository,
+                             TenantLogRepository tenantLogRepository,
                              RoomRepository roomRepository) {
         this.tenantRepository = tenantRepository;
+        this.tenantLogRepository = tenantLogRepository;
         this.roomRepository = roomRepository;
     }
 
@@ -48,5 +54,14 @@ public class TenantServiceImpl implements TenantService {
             roomRepository.save(room);
         }
         return tenantRepository.findByTenantName(wrapper.getTenantName()).get(0);
+    }
+
+    @Override
+    public Tenant checkoutTenant(TenantCheckoutWrapper wrapper) {
+        Room room = roomRepository.findByRoomNumber(wrapper.getRoomNumber()).get(0);
+        Tenant tenant = room.getTenant();
+        tenant.setCheckout(wrapper.getCheckout());
+        tenantLogRepository.save(new TenantLog(tenant));
+        return tenantRepository.save(tenant);
     }
 }

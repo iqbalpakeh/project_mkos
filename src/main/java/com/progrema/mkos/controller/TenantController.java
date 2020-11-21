@@ -1,6 +1,7 @@
 package com.progrema.mkos.controller;
 
 import com.progrema.mkos.entities.tenant.Tenant;
+import com.progrema.mkos.entities.tenant.wrapper.TenantCheckoutWrapper;
 import com.progrema.mkos.entities.tenant.wrapper.TenantCreatorWrapper;
 import com.progrema.mkos.entities.tenant.wrapper.TenantWrapper;
 import com.progrema.mkos.services.TenantService;
@@ -28,5 +29,10 @@ public class TenantController {
     @PostMapping("/api/tenants-create")
     public Tenant createTenant(@RequestBody TenantCreatorWrapper wrapper) {
         return tenantService.createTenant(wrapper);
+    }
+
+    @PostMapping("/api/tenants-checkout")
+    public Tenant checkoutTenant(@RequestBody TenantCheckoutWrapper wrapper) {
+        return tenantService.checkoutTenant(wrapper);
     }
 }

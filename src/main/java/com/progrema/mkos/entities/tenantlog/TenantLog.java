@@ -1,5 +1,6 @@
 package com.progrema.mkos.entities.tenantlog;
 
+import com.progrema.mkos.entities.tenant.Tenant;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -26,6 +27,17 @@ public class TenantLog {
     private String tenantPhone;
 
     private String roomNumber;
+
+    public TenantLog() {
+    }
+
+    public TenantLog(Tenant tenant) {
+        checkin = tenant.getCheckin();
+        checkout = tenant.getCheckout();
+        tenantName = tenant.getTenantName();
+        tenantPhone = tenant.getTenantPhone();
+        roomNumber = tenant.getRoom().getRoomNumber();
+    }
 
     @Override
     public String toString() {
