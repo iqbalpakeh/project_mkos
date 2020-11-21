@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 
 import { fetchTenants } from "../../Api";
 
+import Controller from "./controller";
 import Header from "../../components/Header";
 import Tenant from "./Tenant";
 
@@ -15,6 +16,7 @@ class Index extends Component {
 		return (
 			<div>
 				<Header icon="fas fa-users" title="Tenants" />
+				<Controller />
 				<Tenant />
 			</div>
 		);
