@@ -72,9 +72,54 @@ export const fetchRooms = (dispatch) => {
 export const fetchTenants = (dispatch) => {
 	axios({
 		method: "GET",
-		url: `api/tenants`,
+		url: `/api/tenants`,
 	}).then(
 		(response) => dispatch(addTenant(response.data)),
+		(error) => console.log(error.data)
+	);
+};
+
+export const createRevenuePayment = ({
+	paymentTimestamp,
+	paymentAmount,
+	paymentInformation,
+	roomNumber,
+	dispatch,
+}) => {
+	axios({
+		method: "POST",
+		url: `api/revenue-payments-create`,
+		data: {
+			paymentTimestamp,
+			paymentAmount,
+			paymentInformation,
+			roomNumber,
+		},
+	}).then(
+		(response) => console.log(response.data),
+		(error) => console.log(error.data)
+	);
+};
+
+export const createExpensePayment = ({
+	paymentTimestamp,
+	paymentAmount,
+	paymentInformation,
+	expenseType,
+	dispatch,
+}) => {
+	axios({
+		method: "POST",
+		url: `api/expense-payments-create`,
+		data: {
+			paymentTimestamp,
+			paymentAmount,
+			paymentInformation,
+			expenseType,
+			dispatch,
+		},
+	}).then(
+		(response) => console.log(response.data),
 		(error) => console.log(error.data)
 	);
 };
