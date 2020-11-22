@@ -73,7 +73,7 @@ export const getFilterStartMonth = () => {
 
 export const getFilterEndMonth = (delta) => {
 	const today = new Date();
-	if (today.getMonth + delta < 12) {
+	if (today.getMonth() + delta < 12) {
 		return today.getMonth() > 9
 			? `${today.getMonth() + delta}`
 			: `0${today.getMonth() + delta}`;

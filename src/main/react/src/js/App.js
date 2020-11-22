@@ -32,7 +32,7 @@ class App extends Component {
 		const filter = {
 			year: getFilterYear(),
 			startMonth: getFilterStartMonth(),
-			endMonth: getFilterEndMonth(2),
+			endMonth: getFilterEndMonth(1),
 			dispatch: this.props.dispatch,
 		};
 
