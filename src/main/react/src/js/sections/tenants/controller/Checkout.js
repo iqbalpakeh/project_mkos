@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
-// import { checkoutTenant } from "../../../Api";
+import { checkoutTenant } from "../../../Api";
 import { getMonthNumber } from "../../../components/DateFormatter";
 import FormGroupYear from "../../../components/FormGroupYear";
 import FormGroupMonth from "../../../components/FormGroupMonth";
@@ -44,10 +44,11 @@ class Checkout extends Component {
 	}
 
 	handleSubmitClick(event) {
-		// checkoutTenant({
-		// 	room: this.state.room,
-		// 	endDate: `${this.state.year}${this.state.month}`,
-		// });
+		checkoutTenant({
+			checkout: `${this.state.year}${this.state.month}`,
+			roomNumber: this.state.room,
+			dispatch: this.props.dispatch,
+		});
 		event.preventDefault();
 	}
 
@@ -112,6 +113,7 @@ const ButtonCheckout = () => {
 };
 
 const FormGroupRoom = ({ onChange, defaultValue, rooms }) => {
+	console.log(rooms);
 	return (
 		<div className="form-group">
 			<label>Room</label>
@@ -120,10 +122,10 @@ const FormGroupRoom = ({ onChange, defaultValue, rooms }) => {
 				onChange={onChange}
 				defaultValue={defaultValue}>
 				{rooms.map((opVal, index) => {
-					if (opVal.tenant != null) {
+					if (opVal.room.tenant != null) {
 						return (
-							<option value={opVal.roomNumber} key={index}>
-								Room {opVal.roomNumber}
+							<option value={opVal.room.roomNumber} key={index}>
+								Room {opVal.room.roomNumber}
 							</option>
 						);
 					}
