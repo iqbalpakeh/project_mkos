@@ -4,6 +4,7 @@ export const ADD_EXPENSE_TYPE = "ADD_EXPENSE_TYPE";
 export const ADD_ROOM = "ADD_ROOM";
 export const ADD_REVENUE = "ADD_REVENUE";
 export const ADD_TENANT = "ADD_TENANT";
+export const ADD_TENANT_LOG = "ADD_TENANT_LOG";
 
 export const addIncome = (income) => ({
 	type: ADD_INCOME,
@@ -33,4 +34,9 @@ export const addRevenue = (revenue) => ({
 export const addTenant = (tenant) => ({
 	type: ADD_TENANT,
 	payload: tenant,
+});
+
+export const addTenantLog = (tenantLog) => ({
+	type: ADD_TENANT_LOG,
+	payload: tenantLog,
 });

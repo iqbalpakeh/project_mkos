@@ -9,6 +9,10 @@ import {
 	addTenant,
 } from "./redux/Action";
 
+// --------------------------------------------
+// Fetch Revenue Payments
+// --------------------------------------------
+
 export const fetchRevenuePayments = ({
 	year,
 	startMonth,
@@ -23,6 +27,10 @@ export const fetchRevenuePayments = ({
 		(error) => console.log(error)
 	);
 };
+
+// --------------------------------------------
+// Fetch Expense Payments
+// --------------------------------------------
 
 export const fetchExpensePayments = ({
 	year,
@@ -39,6 +47,10 @@ export const fetchExpensePayments = ({
 	);
 };
 
+// --------------------------------------------
+// Fetch Incomes
+// --------------------------------------------
+
 export const fetchIncomes = ({ year, startMonth, endMonth, dispatch }) => {
 	axios({
 		method: "GET",
@@ -48,6 +60,10 @@ export const fetchIncomes = ({ year, startMonth, endMonth, dispatch }) => {
 		(error) => console.log(error)
 	);
 };
+
+// --------------------------------------------
+// Fetch Expense Types
+// --------------------------------------------
 
 export const fetchExpenseTypes = (dispatch) => {
 	axios({
@@ -59,6 +75,10 @@ export const fetchExpenseTypes = (dispatch) => {
 	);
 };
 
+// --------------------------------------------
+// Fetch Rooms
+// --------------------------------------------
+
 export const fetchRooms = (dispatch) => {
 	axios({
 		method: "GET",
@@ -69,6 +89,10 @@ export const fetchRooms = (dispatch) => {
 	);
 };
 
+// --------------------------------------------
+// Fetch Tenants
+// --------------------------------------------
+
 export const fetchTenants = (dispatch) => {
 	axios({
 		method: "GET",
@@ -78,6 +102,10 @@ export const fetchTenants = (dispatch) => {
 		(error) => console.log(error.data)
 	);
 };
+
+// --------------------------------------------
+// Create Revenue Payment
+// --------------------------------------------
 
 export const createRevenuePayment = ({
 	paymentTimestamp,
@@ -101,6 +129,10 @@ export const createRevenuePayment = ({
 	);
 };
 
+// --------------------------------------------
+// Create Expense Payment
+// --------------------------------------------
+
 export const createExpensePayment = ({
 	paymentTimestamp,
 	paymentAmount,
@@ -123,6 +155,10 @@ export const createExpensePayment = ({
 	);
 };
 
+// --------------------------------------------
+// Create Tenant
+// --------------------------------------------
+
 export const createTenant = ({
 	tenantName,
 	tenantPhone,
@@ -139,6 +175,38 @@ export const createTenant = ({
 			checkin,
 			roomNumber,
 		},
+	}).then(
+		(response) => console.log(response.data),
+		(error) => console.log(error)
+	);
+};
+
+// --------------------------------------------
+// Checkout Tenant
+// --------------------------------------------
+
+export const checkoutTenant = ({ checkout, roomNumber, dispatch }) => {
+	axios({
+		method: "POST",
+		url: `/api/tenants-checkout`,
+		data: {
+			checkout,
+			roomNumber,
+		},
+	}).then(
+		(response) => console.log(response.data),
+		(error) => console.log(error)
+	);
+};
+
+// --------------------------------------------
+// Fetch Tenant Logs
+// --------------------------------------------
+
+export default fetchTenantLogs = ({ dispatch }) => {
+	axios({
+		method: "GET",
+		url: `/api/tenant-logs`,
 	}).then(
 		(response) => console.log(response.data),
 		(error) => console.log(error)
