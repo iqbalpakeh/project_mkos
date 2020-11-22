@@ -23,7 +23,7 @@ class Tenant extends Component {
 				tableEntry: this.buildTableEntry(tenant),
 			};
 		} else {
-			return { cardHeader: "Tenants", tableHeader: [], tableEntry: [] };
+			return { cardHeader: "Tenants Now", tableHeader: [], tableEntry: [] };
 		}
 	}
 
@@ -32,16 +32,16 @@ class Tenant extends Component {
 	}
 
 	buildTableHeader(tenant) {
-		return ["Room", "Name", "Phone", "Checkin"];
+		return ["Name", "Phone", "Room", "Checkin"];
 	}
 
 	buildTableEntry(tenant) {
 		const entry = [];
 		tenant.tenants.forEach((element) => {
 			const row = [];
-			row.push(element.room);
 			row.push(element.tenant.tenantName);
 			row.push(element.tenant.tenantPhone);
+			row.push(element.room);
 			row.push(element.tenant.checkin);
 			entry.push(row);
 		});

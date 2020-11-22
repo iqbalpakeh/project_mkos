@@ -6,6 +6,7 @@ import expenseType from "./ExpenseType";
 import room from "./Room";
 import revenue from "./Revenue";
 import tenant from "./Tenant";
+import tenantLog from "./TenantLog";
 
 export default combineReducers({
 	income,
@@ -14,4 +15,5 @@ export default combineReducers({
 	room,
 	revenue,
 	tenant,
+	tenantLog,
 });

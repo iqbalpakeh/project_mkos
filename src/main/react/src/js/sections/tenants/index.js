@@ -1,15 +1,17 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
-import { fetchTenants } from "../../Api";
+import { fetchTenants, fetchTenantLogs } from "../../Api";
 
 import Controller from "./controller";
 import Header from "../../components/Header";
 import Tenant from "./Tenant";
+import TenantLog from "./TenantLog";
 
 class Index extends Component {
 	componentDidMount() {
 		fetchTenants(this.props.dispatch);
+		fetchTenantLogs(this.props.dispatch);
 	}
 
 	render() {
@@ -18,6 +20,7 @@ class Index extends Component {
 				<Header icon="fas fa-users" title="Tenants" />
 				<Controller />
 				<Tenant />
+				<TenantLog />
 			</div>
 		);
 	}

@@ -7,6 +7,7 @@ import {
 	addRevenue,
 	addRoom,
 	addTenant,
+	addTenantLog,
 } from "./redux/Action";
 
 // --------------------------------------------
@@ -203,12 +204,12 @@ export const checkoutTenant = ({ checkout, roomNumber, dispatch }) => {
 // Fetch Tenant Logs
 // --------------------------------------------
 
-export default fetchTenantLogs = ({ dispatch }) => {
+export const fetchTenantLogs = (dispatch) => {
 	axios({
 		method: "GET",
 		url: `/api/tenant-logs`,
 	}).then(
-		(response) => console.log(response.data),
+		(response) => dispatch(addTenantLog(response.data)),
 		(error) => console.log(error)
 	);
 };
