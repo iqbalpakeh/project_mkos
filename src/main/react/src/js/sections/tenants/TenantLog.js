@@ -41,7 +41,7 @@ class TenantLog extends Component {
 			const row = [];
 			row.push(element.tenantLog.tenantName);
 			row.push(element.tenantLog.tenantPhone);
-			row.push(element.tenantLog.room);
+			row.push(element.tenantLog.roomNumber);
 			row.push(element.tenantLog.checkin);
 			row.push(element.tenantLog.checkout);
 			entry.push(row);
