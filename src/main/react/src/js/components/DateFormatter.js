@@ -60,3 +60,26 @@ export const getMonthNumber = (month) => {
 			return "12";
 	}
 };
+
+export const getFilterYear = () => {
+	const today = new Date();
+	return `${today.getFullYear()}`;
+};
+
+export const getFilterStartMonth = () => {
+	const today = new Date();
+	return today.getMonth() > 9 ? `${today.getMonth()}` : `0${today.getMonth()}`;
+};
+
+export const getFilterEndMonth = (delta) => {
+	const today = new Date();
+	if (today.getMonth + delta < 12) {
+		return today.getMonth() > 9
+			? `${today.getMonth() + delta}`
+			: `0${today.getMonth() + delta}`;
+	} else {
+		return today.getMonth() > 9
+			? `${today.getMonth()}`
+			: `0${today.getMonth()}`;
+	}
+};

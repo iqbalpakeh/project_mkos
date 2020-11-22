@@ -12,6 +12,12 @@ import {
 	fetchExpenseTypes,
 } from "./Api";
 
+import {
+	getFilterYear,
+	getFilterStartMonth,
+	getFilterEndMonth,
+} from "./components/DateFormatter";
+
 import Navbar from "./sections/Navbar";
 import Home from "./sections/home";
 import Tenants from "./sections/tenants";
@@ -24,11 +30,13 @@ import Footer from "./sections/Footer";
 class App extends Component {
 	componentDidMount() {
 		const filter = {
-			year: "2020",
-			startMonth: "09",
-			endMonth: "10",
+			year: getFilterYear(),
+			startMonth: getFilterStartMonth(),
+			endMonth: getFilterEndMonth(2),
 			dispatch: this.props.dispatch,
 		};
+
+		console.log(filter);
 
 		fetchRevenuePayments(filter);
 		fetchExpensePayments(filter);
