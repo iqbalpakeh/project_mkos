@@ -36,8 +36,8 @@ public class InitApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        clearDatabase();
-        populateDatabase02();
+        // clearDatabase();
+        // populateDatabase02();
     }
 
     private void clearDatabase() {
@@ -127,6 +127,13 @@ public class InitApplication implements CommandLineRunner {
             tenant.setCheckin(202009L);
             tenantRepository.save(tenant);
         }
+        {
+            Tenant tenant = new Tenant();
+            tenant.setTenantName("Miftah Aziz");
+            tenant.setTenantPhone("089636036534");
+            tenant.setCheckin(202011L);
+            tenantRepository.save(tenant);
+        }
 
         // -----------------------------
         // Assign tenant to room
@@ -167,6 +174,13 @@ public class InitApplication implements CommandLineRunner {
             roomRepository.save(room);
         }
 
+        {
+            Room room = roomRepository.findByRoomNumber("O").get(0);
+            Tenant tenant = tenantRepository.findByTenantName("Miftah Aziz").get(0);
+            room.setTenant(tenant);
+            roomRepository.save(room);
+        }
+
         // -----------------------------
         // Create Expense Payment
         // -----------------------------
@@ -189,7 +203,7 @@ public class InitApplication implements CommandLineRunner {
 
         ExpensePayment expensePayment3 = new ExpensePayment();
         expensePayment3.setPaymentTimestamp(202010L);
-        expensePayment3.setPaymentAmount(295000L);
+        expensePayment3.setPaymentAmount(80805L);
         expensePayment3.setPaymentInformation("This is for expense water 2020 October");
         expensePayment3.setExpenseType("Water Bill");
         expensePayment3.setExpenseInformation("No Pelanggan: 535590803466");
@@ -197,125 +211,240 @@ public class InitApplication implements CommandLineRunner {
 
         ExpensePayment expensePayment4 = new ExpensePayment();
         expensePayment4.setPaymentTimestamp(202010L);
-        expensePayment4.setPaymentAmount(80805L);
+        expensePayment4.setPaymentAmount(295000L);
         expensePayment4.setPaymentInformation("This is for expense electricity 2020 October");
         expensePayment4.setExpenseType("Electricity Bill");
         expensePayment4.setExpenseInformation("No Pelanggan : 102290302");
         expensePaymentRepository.save(expensePayment4);
 
+        ExpensePayment expensePayment5 = new ExpensePayment();
+        expensePayment5.setPaymentTimestamp(202011L);
+        expensePayment5.setPaymentAmount(91800L);
+        expensePayment5.setPaymentInformation("This is for expense water 2020 November");
+        expensePayment5.setExpenseType("Water Bill");
+        expensePayment5.setExpenseInformation("No Pelanggan: 535590803466");
+        expensePaymentRepository.save(expensePayment5);
+
+        ExpensePayment expensePayment6 = new ExpensePayment();
+        expensePayment6.setPaymentTimestamp(202011L);
+        expensePayment6.setPaymentAmount(290699L);
+        expensePayment6.setPaymentInformation("This is for expense electricity 2020 November");
+        expensePayment6.setExpenseType("Electricity Bill");
+        expensePayment6.setExpenseInformation("No Pelanggan : 102290302");
+        expensePaymentRepository.save(expensePayment6);
+
         // -----------------------------
         // Create Income Payment
         // -----------------------------
 
-        RevenuePayment revenuePayment1 = new RevenuePayment();
-        revenuePayment1.setPaymentTimestamp(202009L);
-        revenuePayment1.setPaymentAmount(600000L);
-        revenuePayment1.setPaymentInformation("Income payment from Room D");
-        revenuePayment1.setRoomNumber("D");
-        revenuePayment1.setRoomRate(600000L);
-        revenuePayment1.setRoomInformation("Room number D");
-        revenuePayment1.setTenantName("Moh Irfan B");
-        revenuePayment1.setTenantPhone("087812668017");
-        revenuePaymentRepository.save(revenuePayment1);
+        {
+            RevenuePayment revenuePayment = new RevenuePayment();
+            revenuePayment.setPaymentTimestamp(202009L);
+            revenuePayment.setPaymentAmount(600000L);
+            revenuePayment.setPaymentInformation("Income payment from Room D");
+            revenuePayment.setRoomNumber("D");
+            revenuePayment.setRoomRate(600000L);
+            revenuePayment.setRoomInformation("Room number D");
+            revenuePayment.setTenantName("Moh Irfan B");
+            revenuePayment.setTenantPhone("087812668017");
+            revenuePaymentRepository.save(revenuePayment);
+        }
 
-        RevenuePayment revenuePayment2 = new RevenuePayment();
-        revenuePayment2.setPaymentTimestamp(202010L);
-        revenuePayment2.setPaymentAmount(600000L);
-        revenuePayment2.setPaymentInformation("Income payment from Room D");
-        revenuePayment2.setRoomNumber("D");
-        revenuePayment2.setRoomRate(600000L);
-        revenuePayment2.setRoomInformation("Room number D");
-        revenuePayment2.setTenantName("Moh Irfan B");
-        revenuePayment2.setTenantPhone("087812668017");
-        revenuePaymentRepository.save(revenuePayment2);
+        {
+            RevenuePayment revenuePayment = new RevenuePayment();
+            revenuePayment.setPaymentTimestamp(202010L);
+            revenuePayment.setPaymentAmount(600000L);
+            revenuePayment.setPaymentInformation("Income payment from Room D");
+            revenuePayment.setRoomNumber("D");
+            revenuePayment.setRoomRate(600000L);
+            revenuePayment.setRoomInformation("Room number D");
+            revenuePayment.setTenantName("Moh Irfan B");
+            revenuePayment.setTenantPhone("087812668017");
+            revenuePaymentRepository.save(revenuePayment);
+        }
 
-        RevenuePayment revenuePayment3 = new RevenuePayment();
-        revenuePayment3.setPaymentTimestamp(202009L);
-        revenuePayment3.setPaymentAmount(600000L);
-        revenuePayment3.setPaymentInformation("Income payment from Room E");
-        revenuePayment3.setRoomNumber("E");
-        revenuePayment3.setRoomRate(600000L);
-        revenuePayment3.setRoomInformation("Room number E");
-        revenuePayment3.setTenantName("Luthfi");
-        revenuePayment3.setTenantPhone("087725595557");
-        revenuePaymentRepository.save(revenuePayment3);
+        {
+            RevenuePayment revenuePayment = new RevenuePayment();
+            revenuePayment.setPaymentTimestamp(202011L);
+            revenuePayment.setPaymentAmount(600000L);
+            revenuePayment.setPaymentInformation("Income payment from Room D");
+            revenuePayment.setRoomNumber("D");
+            revenuePayment.setRoomRate(600000L);
+            revenuePayment.setRoomInformation("Room number D");
+            revenuePayment.setTenantName("Moh Irfan B");
+            revenuePayment.setTenantPhone("087812668017");
+            revenuePaymentRepository.save(revenuePayment);
+        }
 
-        RevenuePayment revenuePayment4 = new RevenuePayment();
-        revenuePayment4.setPaymentTimestamp(202010L);
-        revenuePayment4.setPaymentAmount(600000L);
-        revenuePayment4.setPaymentInformation("Income payment from Room E");
-        revenuePayment4.setRoomNumber("E");
-        revenuePayment4.setRoomRate(600000L);
-        revenuePayment4.setRoomInformation("Room number E");
-        revenuePayment4.setTenantName("Luthfi");
-        revenuePayment4.setTenantPhone("087725595557");
-        revenuePaymentRepository.save(revenuePayment4);
+        {
+            RevenuePayment revenuePayment = new RevenuePayment();
+            revenuePayment.setPaymentTimestamp(202009L);
+            revenuePayment.setPaymentAmount(600000L);
+            revenuePayment.setPaymentInformation("Income payment from Room E");
+            revenuePayment.setRoomNumber("E");
+            revenuePayment.setRoomRate(600000L);
+            revenuePayment.setRoomInformation("Room number E");
+            revenuePayment.setTenantName("Luthfi");
+            revenuePayment.setTenantPhone("087725595557");
+            revenuePaymentRepository.save(revenuePayment);
+        }
 
-        RevenuePayment revenuePayment5 = new RevenuePayment();
-        revenuePayment5.setPaymentTimestamp(202009L);
-        revenuePayment5.setPaymentAmount(600000L);
-        revenuePayment5.setPaymentInformation("Income payment from Room J");
-        revenuePayment5.setRoomNumber("J");
-        revenuePayment5.setRoomRate(600000L);
-        revenuePayment5.setRoomInformation("Room number J");
-        revenuePayment5.setTenantName("Irfan");
-        revenuePayment5.setTenantPhone("085721122232");
-        revenuePaymentRepository.save(revenuePayment5);
+        {
+            RevenuePayment revenuePayment = new RevenuePayment();
+            revenuePayment.setPaymentTimestamp(202010L);
+            revenuePayment.setPaymentAmount(600000L);
+            revenuePayment.setPaymentInformation("Income payment from Room E");
+            revenuePayment.setRoomNumber("E");
+            revenuePayment.setRoomRate(600000L);
+            revenuePayment.setRoomInformation("Room number E");
+            revenuePayment.setTenantName("Luthfi");
+            revenuePayment.setTenantPhone("087725595557");
+            revenuePaymentRepository.save(revenuePayment);
+        }
 
-        RevenuePayment revenuePayment6 = new RevenuePayment();
-        revenuePayment6.setPaymentTimestamp(202010L);
-        revenuePayment6.setPaymentAmount(600000L);
-        revenuePayment6.setPaymentInformation("Income payment from Room J");
-        revenuePayment6.setRoomNumber("J");
-        revenuePayment6.setRoomRate(600000L);
-        revenuePayment6.setRoomInformation("Room number J");
-        revenuePayment6.setTenantName("Irfan");
-        revenuePayment6.setTenantPhone("085721122232");
-        revenuePaymentRepository.save(revenuePayment6);
+        {
+            RevenuePayment revenuePayment = new RevenuePayment();
+            revenuePayment.setPaymentTimestamp(202011L);
+            revenuePayment.setPaymentAmount(600000L);
+            revenuePayment.setPaymentInformation("Income payment from Room E");
+            revenuePayment.setRoomNumber("E");
+            revenuePayment.setRoomRate(600000L);
+            revenuePayment.setRoomInformation("Room number E");
+            revenuePayment.setTenantName("Luthfi");
+            revenuePayment.setTenantPhone("087725595557");
+            revenuePaymentRepository.save(revenuePayment);
+        }
 
-        RevenuePayment revenuePayment7 = new RevenuePayment();
-        revenuePayment7.setPaymentTimestamp(202009L);
-        revenuePayment7.setPaymentAmount(650000L);
-        revenuePayment7.setPaymentInformation("Income payment from Room K");
-        revenuePayment7.setRoomNumber("K");
-        revenuePayment7.setRoomRate(650000L);
-        revenuePayment7.setRoomInformation("Room number K");
-        revenuePayment7.setTenantName("Lucky");
-        revenuePayment7.setTenantPhone("08982226396");
-        revenuePaymentRepository.save(revenuePayment7);
+        {
+            RevenuePayment revenuePayment = new RevenuePayment();
+            revenuePayment.setPaymentTimestamp(202009L);
+            revenuePayment.setPaymentAmount(600000L);
+            revenuePayment.setPaymentInformation("Income payment from Room J");
+            revenuePayment.setRoomNumber("J");
+            revenuePayment.setRoomRate(600000L);
+            revenuePayment.setRoomInformation("Room number J");
+            revenuePayment.setTenantName("Irfan");
+            revenuePayment.setTenantPhone("085721122232");
+            revenuePaymentRepository.save(revenuePayment);
+        }
 
-        RevenuePayment revenuePayment8 = new RevenuePayment();
-        revenuePayment8.setPaymentTimestamp(202010L);
-        revenuePayment8.setPaymentAmount(0L);
-        revenuePayment8.setPaymentInformation("Income payment from Room K");
-        revenuePayment8.setRoomNumber("K");
-        revenuePayment8.setRoomRate(650000L);
-        revenuePayment8.setRoomInformation("Room number K");
-        revenuePayment8.setTenantName("Lucky");
-        revenuePayment8.setTenantPhone("08982226396");
-        revenuePaymentRepository.save(revenuePayment8);
+        {
+            RevenuePayment revenuePayment = new RevenuePayment();
+            revenuePayment.setPaymentTimestamp(202010L);
+            revenuePayment.setPaymentAmount(600000L);
+            revenuePayment.setPaymentInformation("Income payment from Room J");
+            revenuePayment.setRoomNumber("J");
+            revenuePayment.setRoomRate(600000L);
+            revenuePayment.setRoomInformation("Room number J");
+            revenuePayment.setTenantName("Irfan");
+            revenuePayment.setTenantPhone("085721122232");
+            revenuePaymentRepository.save(revenuePayment);
+        }
 
-        RevenuePayment revenuePayment9 = new RevenuePayment();
-        revenuePayment9.setPaymentTimestamp(202009L);
-        revenuePayment9.setPaymentAmount(550000L);
-        revenuePayment9.setPaymentInformation("Income payment from Room L");
-        revenuePayment9.setRoomNumber("L");
-        revenuePayment9.setRoomRate(550000L);
-        revenuePayment9.setRoomInformation("Room number L");
-        revenuePayment9.setTenantName("Irgi");
-        revenuePayment9.setTenantPhone("089661101420");
-        revenuePaymentRepository.save(revenuePayment9);
+        {
+            RevenuePayment revenuePayment = new RevenuePayment();
+            revenuePayment.setPaymentTimestamp(202011L);
+            revenuePayment.setPaymentAmount(600000L);
+            revenuePayment.setPaymentInformation("Income payment from Room J");
+            revenuePayment.setRoomNumber("J");
+            revenuePayment.setRoomRate(600000L);
+            revenuePayment.setRoomInformation("Room number J");
+            revenuePayment.setTenantName("Irfan");
+            revenuePayment.setTenantPhone("085721122232");
+            revenuePaymentRepository.save(revenuePayment);
+        }
 
-        RevenuePayment revenuePayment10 = new RevenuePayment();
-        revenuePayment10.setPaymentTimestamp(202010L);
-        revenuePayment10.setPaymentAmount(550000L);
-        revenuePayment10.setPaymentInformation("Income payment from Room L");
-        revenuePayment10.setRoomNumber("L");
-        revenuePayment10.setRoomRate(550000L);
-        revenuePayment10.setRoomInformation("Room number L");
-        revenuePayment10.setTenantName("Irgi");
-        revenuePayment10.setTenantPhone("089661101420");
-        revenuePaymentRepository.save(revenuePayment10);
+        {
+            RevenuePayment revenuePayment = new RevenuePayment();
+            revenuePayment.setPaymentTimestamp(202009L);
+            revenuePayment.setPaymentAmount(650000L);
+            revenuePayment.setPaymentInformation("Income payment from Room K");
+            revenuePayment.setRoomNumber("K");
+            revenuePayment.setRoomRate(650000L);
+            revenuePayment.setRoomInformation("Room number K");
+            revenuePayment.setTenantName("Lucky");
+            revenuePayment.setTenantPhone("08982226396");
+            revenuePaymentRepository.save(revenuePayment);
+        }
+
+        {
+            RevenuePayment revenuePayment = new RevenuePayment();
+            revenuePayment.setPaymentTimestamp(202010L);
+            revenuePayment.setPaymentAmount(0L);
+            revenuePayment.setPaymentInformation("Income payment from Room K");
+            revenuePayment.setRoomNumber("K");
+            revenuePayment.setRoomRate(650000L);
+            revenuePayment.setRoomInformation("Room number K");
+            revenuePayment.setTenantName("Lucky");
+            revenuePayment.setTenantPhone("08982226396");
+            revenuePaymentRepository.save(revenuePayment);
+        }
+
+        {
+            RevenuePayment revenuePayment = new RevenuePayment();
+            revenuePayment.setPaymentTimestamp(202011L);
+            revenuePayment.setPaymentAmount(0L);
+            revenuePayment.setPaymentInformation("Income payment from Room K");
+            revenuePayment.setRoomNumber("K");
+            revenuePayment.setRoomRate(650000L);
+            revenuePayment.setRoomInformation("Room number K");
+            revenuePayment.setTenantName("Lucky");
+            revenuePayment.setTenantPhone("08982226396");
+            revenuePaymentRepository.save(revenuePayment);
+        }
+
+        {
+            RevenuePayment revenuePayment = new RevenuePayment();
+            revenuePayment.setPaymentTimestamp(202009L);
+            revenuePayment.setPaymentAmount(550000L);
+            revenuePayment.setPaymentInformation("Income payment from Room L");
+            revenuePayment.setRoomNumber("L");
+            revenuePayment.setRoomRate(550000L);
+            revenuePayment.setRoomInformation("Room number L");
+            revenuePayment.setTenantName("Irgi");
+            revenuePayment.setTenantPhone("089661101420");
+            revenuePaymentRepository.save(revenuePayment);
+        }
+
+        {
+            RevenuePayment revenuePayment = new RevenuePayment();
+            revenuePayment.setPaymentTimestamp(202010L);
+            revenuePayment.setPaymentAmount(550000L);
+            revenuePayment.setPaymentInformation("Income payment from Room L");
+            revenuePayment.setRoomNumber("L");
+            revenuePayment.setRoomRate(550000L);
+            revenuePayment.setRoomInformation("Room number L");
+            revenuePayment.setTenantName("Irgi");
+            revenuePayment.setTenantPhone("089661101420");
+            revenuePaymentRepository.save(revenuePayment);
+        }
+
+        {
+            RevenuePayment revenuePayment = new RevenuePayment();
+            revenuePayment.setPaymentTimestamp(202011L);
+            revenuePayment.setPaymentAmount(550000L);
+            revenuePayment.setPaymentInformation("Income payment from Room L");
+            revenuePayment.setRoomNumber("L");
+            revenuePayment.setRoomRate(550000L);
+            revenuePayment.setRoomInformation("Room number L");
+            revenuePayment.setTenantName("Irgi");
+            revenuePayment.setTenantPhone("089661101420");
+            revenuePaymentRepository.save(revenuePayment);
+        }
+
+        {
+            RevenuePayment revenuePayment = new RevenuePayment();
+            revenuePayment.setPaymentTimestamp(202011L);
+            revenuePayment.setPaymentAmount(600000L);
+            revenuePayment.setPaymentInformation("Income payment from Room O");
+            revenuePayment.setRoomNumber("O");
+            revenuePayment.setRoomRate(600000L);
+            revenuePayment.setRoomInformation("Room number O");
+            revenuePayment.setTenantName("Miftah Aziz");
+            revenuePayment.setTenantPhone("089636036534");
+            revenuePaymentRepository.save(revenuePayment);
+        }
+
     }
 
     private void populateDatabase01() {

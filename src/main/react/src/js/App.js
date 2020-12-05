@@ -24,8 +24,8 @@ import Tenants from "./sections/tenants";
 import Footer from "./sections/Footer";
 
 // Bug
-// 1. Non-initilized data on ui controller
-// 2. Non-responsize redux
+// 1. Non-initialized data on ui controller
+// 2. Non-responsive redux
 
 class App extends Component {
 	componentDidMount() {
@@ -35,8 +35,6 @@ class App extends Component {
 			endMonth: getFilterEndMonth(1),
 			dispatch: this.props.dispatch,
 		};
-
-		console.log(filter);
 
 		fetchRevenuePayments(filter);
 		fetchExpensePayments(filter);
