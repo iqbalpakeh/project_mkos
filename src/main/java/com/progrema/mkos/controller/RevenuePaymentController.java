@@ -1,6 +1,5 @@
 package com.progrema.mkos.controller;
 
-import com.progrema.mkos.entities.expensepayment.wrapper.ExpensePaymentCreatorWrapper;
 import com.progrema.mkos.entities.revenuepayment.RevenuePayment;
 import com.progrema.mkos.entities.revenuepayment.wrapper.RevenuePaymentCreatorWrapper;
 import com.progrema.mkos.entities.revenuepayment.wrapper.RevenuePaymentWrapper;
