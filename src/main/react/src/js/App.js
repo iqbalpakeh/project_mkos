@@ -26,6 +26,8 @@ import Footer from "./sections/Footer";
 // Bug
 // 1. Non-initialized data on ui controller
 // 2. Non-responsive redux
+//    - To store all data from back end to redux
+//    - Response accordingly so that data in redux reflecting data in backend
 
 class App extends Component {
 	componentDidMount() {
