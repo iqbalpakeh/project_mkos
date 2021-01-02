@@ -1,4 +1,5 @@
 import React from "react";
+import { getMonthFromNumber } from "../components/DateFormatter";
 
 const FormGroupMonth = ({ handleMonthChange, defaultMonth, title }) => {
 	return (
@@ -7,8 +8,7 @@ const FormGroupMonth = ({ handleMonthChange, defaultMonth, title }) => {
 			<select
 				className="form-control"
 				onChange={handleMonthChange}
-				defaultValue={defaultMonth}
-			>
+				defaultValue={getMonthFromNumber(defaultMonth)}>
 				<option value="January">January</option>
 				<option value="February">February</option>
 				<option value="March">March</option>

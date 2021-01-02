@@ -1,20 +1,25 @@
 import React from "react";
 
 const FormGroupYear = ({ handleYearChange, defaultYear }) => {
+	var years = [];
+	years.push(parseInt(defaultYear) - 1);
+	years.push(parseInt(defaultYear));
+	years.push(parseInt(defaultYear) + 1);
+
+	var options = years.map((year) => (
+		<option key={year} value={year.toString()}>
+			{year}
+		</option>
+	));
+
 	return (
 		<div className="form-group">
 			<label>Year</label>
 			<select
 				className="form-control"
 				onChange={handleYearChange}
-				defaultValue={defaultYear}
-			>
-				<option value="2020">2020</option>
-				<option value="2021">2021</option>
-				<option value="2022">2022</option>
-				<option value="2023">2023</option>
-				<option value="2024">2024</option>
-				<option value="2025">2025</option>
+				defaultValue={defaultYear}>
+				{options}
 			</select>
 		</div>
 	);

@@ -15,8 +15,8 @@ class AddPaymentModal extends Component {
 			amount: "0",
 			type: "Revenue",
 			item: "Electricity",
-			year: "2020",
-			month: "01",
+			year: this.getCurrentYear(),
+			month: this.getCurrentMonth(),
 			information: "",
 		};
 
@@ -27,6 +27,17 @@ class AddPaymentModal extends Component {
 		this.handleMonthChange = this.handleMonthChange.bind(this);
 		this.handleInformationChange = this.handleInformationChange.bind(this);
 		this.handleSubmitClick = this.handleSubmitClick.bind(this);
+	}
+
+	getCurrentYear() {
+		const date = new Date();
+		return `${date.getFullYear()}`;
+	}
+
+	getCurrentMonth() {
+		const date = new Date();
+		const month = date.getMonth() + 1;
+		return month > 9 ? `${month}` : `0${month}`;
 	}
 
 	handleAmountChange(event) {
@@ -110,13 +121,13 @@ class AddPaymentModal extends Component {
 										<div className="col-md-6">
 											<FormGroupYear
 												handleYearChange={this.handleYearChange}
-												defaultYear={this.state.year}
+												defaultYear={this.getCurrentYear()}
 											/>
 										</div>
 										<div className="col-md-6">
 											<FormGroupMonth
 												handleMonthChange={this.handleMonthChange}
-												defaultMonth={this.state.month}
+												defaultMonth={this.getCurrentMonth()}
 												title="Month"
 											/>
 										</div>

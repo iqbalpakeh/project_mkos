@@ -4,7 +4,11 @@ export const getYear = (timestamp) => {
 
 export const getMonth = (timestamp) => {
 	const month = timestamp.toString().substring(4, 6);
-	switch (month) {
+	return getMonthFromNumber(month);
+};
+
+export const getMonthFromNumber = (number) => {
+	switch (number) {
 		case "01":
 			return "January";
 		case "02":
