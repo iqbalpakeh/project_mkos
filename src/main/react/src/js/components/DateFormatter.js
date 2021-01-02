@@ -62,24 +62,22 @@ export const getMonthNumber = (month) => {
 };
 
 export const getFilterYear = () => {
-	const today = new Date();
-	return `${today.getFullYear()}`;
+	const date = new Date();
+	return `${date.getFullYear()}`;
 };
 
 export const getFilterStartMonth = () => {
-	const today = new Date();
-	return today.getMonth() > 9 ? `${today.getMonth()}` : `0${today.getMonth()}`;
+	const date = new Date();
+	const month = date.getMonth() + 1;
+	return month > 9 ? `${month}` : `0${month}`;
 };
 
 export const getFilterEndMonth = (delta) => {
-	const today = new Date();
-	if (today.getMonth() + delta < 12) {
-		return today.getMonth() > 9
-			? `${today.getMonth() + delta}`
-			: `0${today.getMonth() + delta}`;
+	const date = new Date();
+	const month = date.getMonth() + 1;
+	if (month + delta < 12) {
+		return month > 9 ? `${month + delta}` : `0${month + delta}`;
 	} else {
-		return today.getMonth() > 9
-			? `${today.getMonth()}`
-			: `0${today.getMonth()}`;
+		return month > 9 ? `${month}` : `0${month}`;
 	}
 };
