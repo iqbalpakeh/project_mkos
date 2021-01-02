@@ -5,7 +5,7 @@ import {
 	fetchExpensePayments,
 	fetchIncomes,
 } from "../../../Api";
-import { getMonthNumber } from "../../../components/DateFormatter";
+import { getNumberFromMonth } from "../../../components/DateFormatter";
 import FormGroupYear from "../../../components/FormGroupYear";
 import FormGroupMonth from "../../../components/FormGroupMonth";
 
@@ -33,14 +33,14 @@ class SetFilter extends Component {
 
 	handleStartMonthChange(event) {
 		this.setState({
-			startMonth: getMonthNumber(event.target.value),
+			startMonth: getNumberFromMonth(event.target.value),
 		});
 		event.preventDefault();
 	}
 
 	handleEndMonthChange(event) {
 		this.setState({
-			endMonth: getMonthNumber(event.target.value),
+			endMonth: getNumberFromMonth(event.target.value),
 		});
 		event.preventDefault();
 	}

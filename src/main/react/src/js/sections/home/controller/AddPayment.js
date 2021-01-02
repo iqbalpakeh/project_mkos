@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { createRevenuePayment, createExpensePayment } from "../../../Api";
-import { getMonthNumber } from "../../../components/DateFormatter";
+import { getNumberFromMonth } from "../../../components/DateFormatter";
 
 import FormGroupYear from "../../../components/FormGroupYear";
 import FormGroupMonth from "../../../components/FormGroupMonth";
@@ -69,7 +69,7 @@ class AddPaymentModal extends Component {
 
 	handleMonthChange(event) {
 		this.setState({
-			month: getMonthNumber(event.target.value),
+			month: getNumberFromMonth(event.target.value),
 		});
 		event.preventDefault();
 	}

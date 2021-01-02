@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 
 import { createTenant } from "../../../Api";
-import { getMonthNumber } from "../../../components/DateFormatter";
+import { getNumberFromMonth } from "../../../components/DateFormatter";
 import FormGroupYear from "../../../components/FormGroupYear";
 import FormGroupMonth from "../../../components/FormGroupMonth";
 import FormGroupInput from "../../../components/FormGroupInput";
@@ -57,7 +57,7 @@ class AddTenant extends Component {
 
 	handleMonthChange(event) {
 		this.setState({
-			month: getMonthNumber(event.target.value),
+			month: getNumberFromMonth(event.target.value),
 		});
 		event.preventDefault();
 	}

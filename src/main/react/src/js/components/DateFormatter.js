@@ -36,7 +36,7 @@ export const getMonthFromNumber = (number) => {
 	}
 };
 
-export const getMonthNumber = (month) => {
+export const getNumberFromMonth = (month) => {
 	switch (month) {
 		case "January":
 			return "01";
