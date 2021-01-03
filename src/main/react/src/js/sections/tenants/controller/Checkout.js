@@ -84,7 +84,7 @@ class Checkout extends Component {
 										<div className="col-md-6">
 											<FormGroupMonth
 												handleMonthChange={this.handleMonthChange}
-												defaultMonth={this.state.month}
+												initialMonth={this.state.month}
 												title="Month"
 											/>
 										</div>

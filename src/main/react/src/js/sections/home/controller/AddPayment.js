@@ -138,7 +138,7 @@ class AddPaymentModal extends Component {
 										<div className="col-md-6">
 											<FormGroupMonth
 												handleMonthChange={this.handleMonthChange}
-												defaultMonth={this.getCurrentMonth()}
+												initialMonth={this.state.month}
 												title="Month"
 											/>
 										</div>

@@ -93,14 +93,14 @@ class SetFilter extends Component {
 											<FormGroupMonth
 												title="Start Month"
 												handleMonthChange={this.handleStartMonthChange}
-												defaultMonth={this.state.startMonth}
+												initialMonth={this.state.startMonth}
 											/>
 										</div>
 										<div className="col-md-4">
 											<FormGroupMonth
 												title="End Month"
 												handleMonthChange={this.handleEndMonthChange}
-												defaultMonth={this.state.endMonth}
+												initialMonth={this.state.endMonth}
 											/>
 										</div>
 									</div>
