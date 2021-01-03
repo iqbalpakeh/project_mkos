@@ -11,15 +11,8 @@ import Submitter from "../../../components/Submitter";
 class AddPaymentModal extends Component {
 	constructor(props) {
 		super(props);
-		this.state = {
-			amount: "0",
-			type: "Revenue",
-			item: "Electricity",
-			year: this.getCurrentYear(),
-			month: this.getCurrentMonth(),
-			information: "",
-		};
-
+		this.state = this.getInitState();
+		this.handleClick = this.handleClick.bind(this);
 		this.handleAmountChange = this.handleAmountChange.bind(this);
 		this.handleTypeChange = this.handleTypeChange.bind(this);
 		this.handleItemChange = this.handleItemChange.bind(this);
@@ -27,6 +20,17 @@ class AddPaymentModal extends Component {
 		this.handleMonthChange = this.handleMonthChange.bind(this);
 		this.handleInformationChange = this.handleInformationChange.bind(this);
 		this.handleSubmitClick = this.handleSubmitClick.bind(this);
+	}
+
+	getInitState() {
+		return {
+			amount: "0",
+			type: "Revenue",
+			item: "Electricity",
+			year: this.getCurrentYear(),
+			month: this.getCurrentMonth(),
+			information: "",
+		};
 	}
 
 	getCurrentYear() {
@@ -38,6 +42,11 @@ class AddPaymentModal extends Component {
 		const date = new Date();
 		const month = date.getMonth() + 1;
 		return month > 9 ? `${month}` : `0${month}`;
+	}
+
+	handleClick(event) {
+		console.log("handleClick()");
+		event.preventDefault();
 	}
 
 	handleAmountChange(event) {
@@ -105,7 +114,7 @@ class AddPaymentModal extends Component {
 	render() {
 		return (
 			<div>
-				<ButtonAddPayment />
+				<ButtonAddPayment handleClick={this.handleClick} />
 				<div className="modal fade" id="addPaymentModal">
 					<div className="modal-dialog modal-lg">
 						<div className="modal-content">
@@ -165,13 +174,14 @@ class AddPaymentModal extends Component {
 	}
 }
 
-const ButtonAddPayment = () => {
+const ButtonAddPayment = ({ handleClick }) => {
 	return (
 		<a
 			href="#"
 			className="btn btn-primary btn-block"
 			data-toggle="modal"
-			data-target="#addPaymentModal">
+			data-target="#addPaymentModal"
+			onClick={handleClick}>
 			<i className="fas fa-plus"></i> Add Payment
 		</a>
 	);
