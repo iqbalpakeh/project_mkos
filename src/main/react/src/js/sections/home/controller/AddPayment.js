@@ -26,7 +26,7 @@ class AddPaymentModal extends Component {
 		return {
 			amount: "0",
 			type: "Revenue",
-			item: "Electricity",
+			item: "Room B",
 			year: this.getCurrentYear(),
 			month: this.getCurrentMonth(),
 			information: "",
@@ -152,11 +152,11 @@ class AddPaymentModal extends Component {
 										/>
 										<FormGroupType
 											handleTypeChange={this.handleTypeChange}
-											defaultType={this.state.type}
+											initialType={this.state.type}
 										/>
 										<FormGroupItem
 											handleItemChange={this.handleItemChange}
-											defaultItem={this.state.item}
+											initialItem={this.state.item}
 											revenue={this.props.room.rooms}
 											expense={this.props.expenseType.expenseTypes}
 											type={this.state.type}
@@ -164,6 +164,7 @@ class AddPaymentModal extends Component {
 									</form>
 									<FormGroupInformation
 										handleInformationChange={this.handleInformationChange}
+										initialValue={this.state.information}
 									/>
 								</div>
 							</div>
@@ -189,14 +190,14 @@ const ButtonAddPayment = ({ handleClick }) => {
 	);
 };
 
-const FormGroupType = ({ handleTypeChange, defaultType }) => {
+const FormGroupType = ({ handleTypeChange, initialType }) => {
 	return (
 		<div className="form-group">
 			<label>Type</label>
 			<select
 				className="form-control"
 				onChange={handleTypeChange}
-				defaultValue={defaultType}>
+				value={initialType}>
 				<option value="Revenue">Revenue</option>
 				<option value="Expense">Expense</option>
 			</select>
@@ -206,7 +207,7 @@ const FormGroupType = ({ handleTypeChange, defaultType }) => {
 
 const FormGroupItem = ({
 	handleItemChange,
-	defaultItem,
+	initialItem,
 	revenue,
 	expense,
 	type,
@@ -217,7 +218,7 @@ const FormGroupItem = ({
 			<select
 				className="form-control"
 				onChange={handleItemChange}
-				defaultValue={defaultItem}>
+				value={initialItem}>
 				{type === "Revenue"
 					? revenue.map((opVal, index) => {
 							return (
@@ -238,13 +239,14 @@ const FormGroupItem = ({
 	);
 };
 
-const FormGroupInformation = ({ handleInformationChange }) => {
+const FormGroupInformation = ({ handleInformationChange, initialValue }) => {
 	return (
 		<div className="form-group">
 			<label>Information</label>
 			<textarea
 				className="form-control"
 				onChange={handleInformationChange}
+				value={initialValue}
 				rows="7"></textarea>
 		</div>
 	);
