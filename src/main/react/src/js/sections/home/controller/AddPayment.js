@@ -46,6 +46,7 @@ class AddPaymentModal extends Component {
 
 	handleClick(event) {
 		console.log("handleClick()");
+		this.setState(this.getInitState());
 		event.preventDefault();
 	}
 
@@ -91,23 +92,24 @@ class AddPaymentModal extends Component {
 	}
 
 	handleSubmitClick(event) {
-		if (this.state.type == "Revenue") {
-			createRevenuePayment({
-				paymentTimestamp: `${this.state.year}${this.state.month}`,
-				paymentAmount: this.state.amount,
-				paymentInformation: this.state.information,
-				roomNumber: this.state.item,
-				dispatch: this.props.dispatch,
-			});
-		} else {
-			createExpensePayment({
-				paymentTimestamp: `${this.state.year}${this.state.month}`,
-				paymentAmount: this.state.amount,
-				paymentInformation: this.state.information,
-				expenseType: this.state.item,
-				dispatch: this.props.dispatch,
-			});
-		}
+		console.log(this.state);
+		// if (this.state.type == "Revenue") {
+		// 	createRevenuePayment({
+		// 		paymentTimestamp: `${this.state.year}${this.state.month}`,
+		// 		paymentAmount: this.state.amount,
+		// 		paymentInformation: this.state.information,
+		// 		roomNumber: this.state.item,
+		// 		dispatch: this.props.dispatch,
+		// 	});
+		// } else {
+		// 	createExpensePayment({
+		// 		paymentTimestamp: `${this.state.year}${this.state.month}`,
+		// 		paymentAmount: this.state.amount,
+		// 		paymentInformation: this.state.information,
+		// 		expenseType: this.state.item,
+		// 		dispatch: this.props.dispatch,
+		// 	});
+		// }
 		event.preventDefault();
 	}
 
@@ -145,7 +147,7 @@ class AddPaymentModal extends Component {
 										<FormGroupInput
 											title="Amount"
 											onChange={this.handleAmountChange}
-											defaultValue={this.state.amount}
+											initialValue={this.state.amount}
 											type="number"
 										/>
 										<FormGroupType
