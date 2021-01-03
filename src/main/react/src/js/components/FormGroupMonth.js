@@ -1,14 +1,14 @@
 import React from "react";
 import { getMonthFromNumber } from "../components/DateFormatter";
 
-const FormGroupMonth = ({ handleMonthChange, defaultMonth, title }) => {
+const FormGroupMonth = ({ handleMonthChange, initialMonth, title }) => {
 	return (
 		<div className="form-group">
 			<label>{title}</label>
 			<select
 				className="form-control"
 				onChange={handleMonthChange}
-				defaultValue={getMonthFromNumber(defaultMonth)}>
+				value={getMonthFromNumber(initialMonth)}>
 				<option value="January">January</option>
 				<option value="February">February</option>
 				<option value="March">March</option>

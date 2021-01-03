@@ -11,15 +11,8 @@ import Submitter from "../../../components/Submitter";
 class AddPaymentModal extends Component {
 	constructor(props) {
 		super(props);
-		this.state = {
-			amount: "0",
-			type: "Revenue",
-			item: "Electricity",
-			year: this.getCurrentYear(),
-			month: this.getCurrentMonth(),
-			information: "",
-		};
-
+		this.state = this.getInitState();
+		this.handleClick = this.handleClick.bind(this);
 		this.handleAmountChange = this.handleAmountChange.bind(this);
 		this.handleTypeChange = this.handleTypeChange.bind(this);
 		this.handleItemChange = this.handleItemChange.bind(this);
@@ -27,6 +20,17 @@ class AddPaymentModal extends Component {
 		this.handleMonthChange = this.handleMonthChange.bind(this);
 		this.handleInformationChange = this.handleInformationChange.bind(this);
 		this.handleSubmitClick = this.handleSubmitClick.bind(this);
+	}
+
+	getInitState() {
+		return {
+			amount: "0",
+			type: "Revenue",
+			item: "Room B",
+			year: this.getCurrentYear(),
+			month: this.getCurrentMonth(),
+			information: "",
+		};
 	}
 
 	getCurrentYear() {
@@ -38,6 +42,12 @@ class AddPaymentModal extends Component {
 		const date = new Date();
 		const month = date.getMonth() + 1;
 		return month > 9 ? `${month}` : `0${month}`;
+	}
+
+	handleClick(event) {
+		console.log("handleClick()");
+		this.setState(this.getInitState());
+		event.preventDefault();
 	}
 
 	handleAmountChange(event) {
@@ -82,30 +92,31 @@ class AddPaymentModal extends Component {
 	}
 
 	handleSubmitClick(event) {
-		if (this.state.type == "Revenue") {
-			createRevenuePayment({
-				paymentTimestamp: `${this.state.year}${this.state.month}`,
-				paymentAmount: this.state.amount,
-				paymentInformation: this.state.information,
-				roomNumber: this.state.item,
-				dispatch: this.props.dispatch,
-			});
-		} else {
-			createExpensePayment({
-				paymentTimestamp: `${this.state.year}${this.state.month}`,
-				paymentAmount: this.state.amount,
-				paymentInformation: this.state.information,
-				expenseType: this.state.item,
-				dispatch: this.props.dispatch,
-			});
-		}
+		console.log(this.state);
+		// if (this.state.type == "Revenue") {
+		// 	createRevenuePayment({
+		// 		paymentTimestamp: `${this.state.year}${this.state.month}`,
+		// 		paymentAmount: this.state.amount,
+		// 		paymentInformation: this.state.information,
+		// 		roomNumber: this.state.item,
+		// 		dispatch: this.props.dispatch,
+		// 	});
+		// } else {
+		// 	createExpensePayment({
+		// 		paymentTimestamp: `${this.state.year}${this.state.month}`,
+		// 		paymentAmount: this.state.amount,
+		// 		paymentInformation: this.state.information,
+		// 		expenseType: this.state.item,
+		// 		dispatch: this.props.dispatch,
+		// 	});
+		// }
 		event.preventDefault();
 	}
 
 	render() {
 		return (
 			<div>
-				<ButtonAddPayment />
+				<ButtonAddPayment handleClick={this.handleClick} />
 				<div className="modal fade" id="addPaymentModal">
 					<div className="modal-dialog modal-lg">
 						<div className="modal-content">
@@ -121,13 +132,13 @@ class AddPaymentModal extends Component {
 										<div className="col-md-6">
 											<FormGroupYear
 												handleYearChange={this.handleYearChange}
-												defaultYear={this.getCurrentYear()}
+												initialYear={this.state.year}
 											/>
 										</div>
 										<div className="col-md-6">
 											<FormGroupMonth
 												handleMonthChange={this.handleMonthChange}
-												defaultMonth={this.getCurrentMonth()}
+												initialMonth={this.state.month}
 												title="Month"
 											/>
 										</div>
@@ -136,16 +147,16 @@ class AddPaymentModal extends Component {
 										<FormGroupInput
 											title="Amount"
 											onChange={this.handleAmountChange}
-											defaultValue={this.state.amount}
+											initialValue={this.state.amount}
 											type="number"
 										/>
 										<FormGroupType
 											handleTypeChange={this.handleTypeChange}
-											defaultType={this.state.type}
+											initialType={this.state.type}
 										/>
 										<FormGroupItem
 											handleItemChange={this.handleItemChange}
-											defaultItem={this.state.item}
+											initialItem={this.state.item}
 											revenue={this.props.room.rooms}
 											expense={this.props.expenseType.expenseTypes}
 											type={this.state.type}
@@ -153,6 +164,7 @@ class AddPaymentModal extends Component {
 									</form>
 									<FormGroupInformation
 										handleInformationChange={this.handleInformationChange}
+										initialValue={this.state.information}
 									/>
 								</div>
 							</div>
@@ -165,26 +177,27 @@ class AddPaymentModal extends Component {
 	}
 }
 
-const ButtonAddPayment = () => {
+const ButtonAddPayment = ({ handleClick }) => {
 	return (
 		<a
 			href="#"
 			className="btn btn-primary btn-block"
 			data-toggle="modal"
-			data-target="#addPaymentModal">
+			data-target="#addPaymentModal"
+			onClick={handleClick}>
 			<i className="fas fa-plus"></i> Add Payment
 		</a>
 	);
 };
 
-const FormGroupType = ({ handleTypeChange, defaultType }) => {
+const FormGroupType = ({ handleTypeChange, initialType }) => {
 	return (
 		<div className="form-group">
 			<label>Type</label>
 			<select
 				className="form-control"
 				onChange={handleTypeChange}
-				defaultValue={defaultType}>
+				value={initialType}>
 				<option value="Revenue">Revenue</option>
 				<option value="Expense">Expense</option>
 			</select>
@@ -194,7 +207,7 @@ const FormGroupType = ({ handleTypeChange, defaultType }) => {
 
 const FormGroupItem = ({
 	handleItemChange,
-	defaultItem,
+	initialItem,
 	revenue,
 	expense,
 	type,
@@ -205,7 +218,7 @@ const FormGroupItem = ({
 			<select
 				className="form-control"
 				onChange={handleItemChange}
-				defaultValue={defaultItem}>
+				value={initialItem}>
 				{type === "Revenue"
 					? revenue.map((opVal, index) => {
 							return (
@@ -226,13 +239,14 @@ const FormGroupItem = ({
 	);
 };
 
-const FormGroupInformation = ({ handleInformationChange }) => {
+const FormGroupInformation = ({ handleInformationChange, initialValue }) => {
 	return (
 		<div className="form-group">
 			<label>Information</label>
 			<textarea
 				className="form-control"
 				onChange={handleInformationChange}
+				value={initialValue}
 				rows="7"></textarea>
 		</div>
 	);

@@ -1,6 +1,6 @@
 import React from "react";
 
-const FormGroupInput = ({ title, onChange, defaultValue, type }) => {
+const FormGroupInput = ({ title, onChange, initialValue, type }) => {
 	return (
 		<div className="form-group">
 			<label>{title}</label>
@@ -8,8 +8,7 @@ const FormGroupInput = ({ title, onChange, defaultValue, type }) => {
 				type={type}
 				className="form-control"
 				onChange={onChange}
-				defaultValue={defaultValue}
-			></input>
+				value={initialValue}></input>
 		</div>
 	);
 };
