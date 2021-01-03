@@ -78,7 +78,7 @@ class Checkout extends Component {
 										<div className="col-md-6">
 											<FormGroupYear
 												handleYearChange={this.handleYearChange}
-												defaultYear={this.state.year}
+												initialYear={this.state.year}
 											/>
 										</div>
 										<div className="col-md-6">

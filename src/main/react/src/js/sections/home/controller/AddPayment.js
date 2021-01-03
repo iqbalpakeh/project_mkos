@@ -132,7 +132,7 @@ class AddPaymentModal extends Component {
 										<div className="col-md-6">
 											<FormGroupYear
 												handleYearChange={this.handleYearChange}
-												defaultYear={this.getCurrentYear()}
+												initialYear={this.state.year}
 											/>
 										</div>
 										<div className="col-md-6">

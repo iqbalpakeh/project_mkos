@@ -1,10 +1,10 @@
 import React from "react";
 
-const FormGroupYear = ({ handleYearChange, defaultYear }) => {
+const FormGroupYear = ({ handleYearChange, initialYear }) => {
 	var years = [];
-	years.push(parseInt(defaultYear) - 1);
-	years.push(parseInt(defaultYear));
-	years.push(parseInt(defaultYear) + 1);
+	years.push(parseInt(initialYear) - 1);
+	years.push(parseInt(initialYear));
+	years.push(parseInt(initialYear) + 1);
 
 	var options = years.map((year) => (
 		<option key={year} value={year.toString()}>
@@ -18,7 +18,7 @@ const FormGroupYear = ({ handleYearChange, defaultYear }) => {
 			<select
 				className="form-control"
 				onChange={handleYearChange}
-				defaultValue={defaultYear}>
+				value={initialYear}>
 				{options}
 			</select>
 		</div>
