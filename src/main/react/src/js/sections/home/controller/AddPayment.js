@@ -26,7 +26,7 @@ class AddPaymentModal extends Component {
 		return {
 			amount: "0",
 			type: "Revenue",
-			item: "Room B",
+			item: "B",
 			year: this.getCurrentYear(),
 			month: this.getCurrentMonth(),
 			information: "",
@@ -61,7 +61,7 @@ class AddPaymentModal extends Component {
 		if (typeValue === "Revenue") {
 			this.setState({
 				type: typeValue,
-				item: "Room B",
+				item: "B",
 			});
 		} else {
 			this.setState({
@@ -100,6 +100,7 @@ class AddPaymentModal extends Component {
 	}
 
 	handleSubmitClick(event) {
+		console.log(this.state);
 		if (this.state.type == "Revenue") {
 			createRevenuePayment({
 				paymentTimestamp: `${this.state.year}${this.state.month}`,
