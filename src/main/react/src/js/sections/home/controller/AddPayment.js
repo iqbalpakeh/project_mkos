@@ -58,9 +58,18 @@ class AddPaymentModal extends Component {
 	}
 
 	handleTypeChange(event) {
-		this.setState({
-			type: event.target.value,
-		});
+		const typeValue = event.target.value;
+		if (typeValue === "Revenue") {
+			this.setState({
+				type: typeValue,
+				item: "Room B",
+			});
+		} else {
+			this.setState({
+				type: typeValue,
+				item: "Water Bill",
+			});
+		}
 		event.preventDefault();
 	}
 
@@ -93,23 +102,23 @@ class AddPaymentModal extends Component {
 
 	handleSubmitClick(event) {
 		console.log(this.state);
-		// if (this.state.type == "Revenue") {
-		// 	createRevenuePayment({
-		// 		paymentTimestamp: `${this.state.year}${this.state.month}`,
-		// 		paymentAmount: this.state.amount,
-		// 		paymentInformation: this.state.information,
-		// 		roomNumber: this.state.item,
-		// 		dispatch: this.props.dispatch,
-		// 	});
-		// } else {
-		// 	createExpensePayment({
-		// 		paymentTimestamp: `${this.state.year}${this.state.month}`,
-		// 		paymentAmount: this.state.amount,
-		// 		paymentInformation: this.state.information,
-		// 		expenseType: this.state.item,
-		// 		dispatch: this.props.dispatch,
-		// 	});
-		// }
+		if (this.state.type == "Revenue") {
+			createRevenuePayment({
+				paymentTimestamp: `${this.state.year}${this.state.month}`,
+				paymentAmount: this.state.amount,
+				paymentInformation: this.state.information,
+				roomNumber: this.state.item,
+				dispatch: this.props.dispatch,
+			});
+		} else {
+			createExpensePayment({
+				paymentTimestamp: `${this.state.year}${this.state.month}`,
+				paymentAmount: this.state.amount,
+				paymentInformation: this.state.information,
+				expenseType: this.state.item,
+				dispatch: this.props.dispatch,
+			});
+		}
 		event.preventDefault();
 	}
 
