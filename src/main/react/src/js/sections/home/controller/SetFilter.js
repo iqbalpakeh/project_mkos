@@ -5,23 +5,37 @@ import {
 	fetchExpensePayments,
 	fetchIncomes,
 } from "../../../Api";
-import { getNumberFromMonth } from "../../../components/DateFormatter";
+import {
+	getNumberFromMonth,
+	getCurrentYear,
+	getFilterStartMonth,
+	getFilterEndMonth,
+} from "../../../components/DateFormatter";
 import FormGroupYear from "../../../components/FormGroupYear";
 import FormGroupMonth from "../../../components/FormGroupMonth";
 
 class SetFilter extends Component {
 	constructor(props) {
 		super(props);
-		this.state = {
-			year: "2020",
-			startMonth: "01",
-			endMonth: "02",
-		};
-
+		this.state = this.getInitState();
+		this.handleClick = this.handleClick.bind(this);
 		this.handleYearChange = this.handleYearChange.bind(this);
 		this.handleStartMonthChange = this.handleStartMonthChange.bind(this);
 		this.handleEndMonthChange = this.handleEndMonthChange.bind(this);
 		this.handleSaveChangesClick = this.handleSaveChangesClick.bind(this);
+	}
+
+	getInitState() {
+		return {
+			year: getCurrentYear(),
+			startMonth: getFilterStartMonth(),
+			endMonth: getFilterEndMonth(1),
+		};
+	}
+
+	handleClick(event) {
+		this.setState(this.getInitState());
+		event.preventDefault();
 	}
 
 	handleYearChange(event) {
@@ -70,7 +84,7 @@ class SetFilter extends Component {
 	render() {
 		return (
 			<div>
-				<SetFilterButton />
+				<SetFilterButton handleClick={this.handleClick} />
 				<div className="modal fade" id="setFilterModal">
 					<div className="modal-dialog modal-lg">
 						<div className="modal-content">
@@ -117,13 +131,14 @@ class SetFilter extends Component {
 	}
 }
 
-const SetFilterButton = () => {
+const SetFilterButton = ({ handleClick }) => {
 	return (
 		<a
 			href="#"
 			className="btn btn-warning btn-block"
 			data-toggle="modal"
-			data-target="#setFilterModal">
+			data-target="#setFilterModal"
+			onClick={handleClick}>
 			<i className="fas fa-edit"></i> Set Filter
 		</a>
 	);
