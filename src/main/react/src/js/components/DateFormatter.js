@@ -85,3 +85,14 @@ export const getFilterEndMonth = (delta) => {
 		return month > 9 ? `${month}` : `0${month}`;
 	}
 };
+
+export const getCurrentYear = () => {
+	const date = new Date();
+	return `${date.getFullYear()}`;
+};
+
+export const getCurrentMonth = () => {
+	const date = new Date();
+	const month = date.getMonth() + 1;
+	return month > 9 ? `${month}` : `0${month}`;
+};

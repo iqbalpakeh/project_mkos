@@ -1,7 +1,11 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { createRevenuePayment, createExpensePayment } from "../../../Api";
-import { getNumberFromMonth } from "../../../components/DateFormatter";
+import {
+	getNumberFromMonth,
+	getCurrentYear,
+	getCurrentMonth,
+} from "../../../components/DateFormatter";
 
 import FormGroupYear from "../../../components/FormGroupYear";
 import FormGroupMonth from "../../../components/FormGroupMonth";
@@ -27,21 +31,10 @@ class AddPaymentModal extends Component {
 			amount: "0",
 			type: "Revenue",
 			item: this.getFirstOccupiedRoom(),
-			year: this.getCurrentYear(),
-			month: this.getCurrentMonth(),
+			year: getCurrentYear(),
+			month: getCurrentMonth(),
 			information: "",
 		};
-	}
-
-	getCurrentYear() {
-		const date = new Date();
-		return `${date.getFullYear()}`;
-	}
-
-	getCurrentMonth() {
-		const date = new Date();
-		const month = date.getMonth() + 1;
-		return month > 9 ? `${month}` : `0${month}`;
 	}
 
 	getFirstOccupiedRoom() {
