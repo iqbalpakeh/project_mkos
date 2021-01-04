@@ -26,7 +26,7 @@ class AddPaymentModal extends Component {
 		return {
 			amount: "0",
 			type: "Revenue",
-			item: "B",
+			item: this.getFirstOccupiedRoom(),
 			year: this.getCurrentYear(),
 			month: this.getCurrentMonth(),
 			information: "",
@@ -42,6 +42,16 @@ class AddPaymentModal extends Component {
 		const date = new Date();
 		const month = date.getMonth() + 1;
 		return month > 9 ? `${month}` : `0${month}`;
+	}
+
+	getFirstOccupiedRoom() {
+		const rooms = this.props.room.rooms;
+		if (rooms.length > 0) {
+			const occuppiedRooms = rooms.filter((room) => room.room.tenant != null);
+			return occuppiedRooms[0].room.roomNumber;
+		} else {
+			return "";
+		}
 	}
 
 	handleClick(event) {
@@ -61,7 +71,7 @@ class AddPaymentModal extends Component {
 		if (typeValue === "Revenue") {
 			this.setState({
 				type: typeValue,
-				item: "B",
+				item: this.getFirstOccupiedRoom(),
 			});
 		} else {
 			this.setState({
@@ -229,11 +239,13 @@ const FormGroupItem = ({
 				value={initialItem}>
 				{type === "Revenue"
 					? revenue.map((opVal, index) => {
-							return (
-								<option value={opVal.room.roomNumber} key={index}>
-									Room {opVal.room.roomNumber}
-								</option>
-							);
+							if (opVal.room.tenant != null) {
+								return (
+									<option value={opVal.room.roomNumber} key={index}>
+										Room {opVal.room.roomNumber}
+									</option>
+								);
+							}
 					  })
 					: expense.map((opVal, index) => {
 							return (
