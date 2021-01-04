@@ -45,7 +45,6 @@ class AddPaymentModal extends Component {
 	}
 
 	handleClick(event) {
-		console.log("handleClick()");
 		this.setState(this.getInitState());
 		event.preventDefault();
 	}
@@ -101,7 +100,6 @@ class AddPaymentModal extends Component {
 	}
 
 	handleSubmitClick(event) {
-		console.log(this.state);
 		if (this.state.type == "Revenue") {
 			createRevenuePayment({
 				paymentTimestamp: `${this.state.year}${this.state.month}`,

@@ -113,7 +113,6 @@ const ButtonCheckout = () => {
 };
 
 const FormGroupRoom = ({ onChange, defaultValue, rooms }) => {
-	console.log(rooms);
 	return (
 		<div className="form-group">
 			<label>Room</label>
