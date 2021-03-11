@@ -1,4 +1,5 @@
 import { default as NavLink } from "./nav-link";
+import { default as Login } from "./login";
 
 const Component = () => {
 	return (
@@ -13,9 +14,7 @@ const Component = () => {
 			</ul>
 			<ul className="navbar-nav ml-auto">
 				<li className="nav-item">
-					<a href="#" className="nav-link">
-						<i className="fas fa-user-times" /> Welcome, Admin
-					</a>
+					<Login />
 				</li>
 			</ul>
 		</div>
