@@ -3,7 +3,6 @@ import ReactDOM from "react-dom";
 import "jquery/dist/jquery.min.js";
 import "bootstrap/dist/js/bootstrap.min.js";
 
-import "styles";
 import { default as App } from "app";
 
 ReactDOM.render(
