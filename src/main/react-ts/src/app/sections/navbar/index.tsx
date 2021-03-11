@@ -1,6 +1,6 @@
 import { default as NavBrand } from "./nav-brand";
 import { default as CollapseButton } from "./collapse-button";
-import { default as CollapseLink } from "./collapse-links";
+import { default as CollapseLinks } from "./collapse-links";
 
 const Navbar = () => {
 	return (
@@ -9,7 +9,7 @@ const Navbar = () => {
 				<div className="container">
 					<NavBrand title="MKOS" />
 					<CollapseButton />
-					<CollapseLink />
+					<CollapseLinks />
 				</div>
 			</div>
 		</div>
