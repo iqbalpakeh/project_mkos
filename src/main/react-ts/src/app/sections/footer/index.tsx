@@ -4,7 +4,7 @@ const Component = () => {
 			<div className="container">
 				<div className="row">
 					<div className="col">
-						<div className="lead text-center">Copyright &copy; 2020 MKos</div>
+						<div className="lead text-center">Copyright &copy; 2021 MKos</div>
 					</div>
 				</div>
 			</div>
