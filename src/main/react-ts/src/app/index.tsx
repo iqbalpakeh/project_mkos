@@ -1,13 +1,26 @@
-import { BrowserRouter as Router } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-import { default as Navbar } from "./sections/navbar";
+import { NavBar, Home, Tenants, Footer } from "./sections";
 
-const app = () => {
+const Component = () => {
 	return (
 		<Router>
-			<Navbar />
+			<div className="d-flex flex-column min-vh-100">
+				<NavBar />
+				<div className="wrapper flex-grow-1">
+					<Switch>
+						<Route exact path="/">
+							<Home />
+						</Route>
+						<Route path="/tenants">
+							<Tenants />
+						</Route>
+					</Switch>
+				</div>
+				<Footer />
+			</div>
 		</Router>
 	);
 };
 
-export default app;
+export default Component;
