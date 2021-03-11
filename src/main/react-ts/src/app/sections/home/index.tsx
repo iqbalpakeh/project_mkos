@@ -1,5 +1,11 @@
+import { Header } from "app/reusable-components";
+
 const Component = () => {
-	return <div>Home</div>;
+	return (
+		<div>
+			<Header icon="fas fa-home" title="Home" />
+		</div>
+	);
 };
 
 export default Component;
