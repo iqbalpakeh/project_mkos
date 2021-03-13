@@ -2,11 +2,12 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { useEffect } from "react";
 
 import { NavBar, Home, Tenants, Footer } from "./sections";
-import { getExpenses } from "api/expenses-api";
+import { getExpenses, getRooms } from "api";
 
 const Component = () => {
 	useEffect(() => {
 		getExpenses();
+		getRooms();
 	});
 
 	return (
