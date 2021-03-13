@@ -1,7 +1,7 @@
 import { default as NavBrand } from "./nav-brand";
 import { default as Collapsible } from "./collapsible";
 
-const Navbar = () => {
+const Component = () => {
 	return (
 		<div>
 			<div className="navbar navbar-expand-sm navbar-dark bg-dark p-0">
@@ -14,4 +14,4 @@ const Navbar = () => {
 	);
 };
 
-export default Navbar;
+export default Component;
