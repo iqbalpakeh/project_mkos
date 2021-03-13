@@ -1,8 +1,5 @@
 import axios from "axios";
 
-/**
- * Get all rooms with GET /api/rooms
- */
 export const getRooms = () => {
 	axios.get(`/api/rooms`).then(
 		(response) => {

@@ -48,3 +48,4 @@ How to deploy to heroku app?
 What is the best source to learn react + typescript?
 --------------------------------------------------
 https://github.com/typescript-cheatsheets/react
+https://www.freecodecamp.org/news/how-to-use-redux-in-your-react-typescript-app/
