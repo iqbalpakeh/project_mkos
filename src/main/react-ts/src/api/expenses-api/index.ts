@@ -10,7 +10,7 @@ interface IInput {
 // };
 
 /**
- * Rest Api call with GET /api/expenses
+ * Get all expenses with GET /api/expenses
  */
 export const getExpenses = () => {
 	axios.get(`/api/expenses`).then(
