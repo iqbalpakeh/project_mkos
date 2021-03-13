@@ -13,12 +13,12 @@ import org.springframework.stereotype.Component;
 @Component
 public class InitApplication implements CommandLineRunner {
 
-    private ExpenseRepository expenseRepository;
-    private ExpensePaymentRepository expensePaymentRepository;
-    private RevenuePaymentRepository revenuePaymentRepository;
-    private RoomRepository roomRepository;
-    private TenantLogRepository tenantLogRepository;
-    private TenantRepository tenantRepository;
+    private final ExpenseRepository expenseRepository;
+    private final ExpensePaymentRepository expensePaymentRepository;
+    private final RevenuePaymentRepository revenuePaymentRepository;
+    private final RoomRepository roomRepository;
+    private final TenantLogRepository tenantLogRepository;
+    private final TenantRepository tenantRepository;
 
     public InitApplication(ExpenseRepository expenseRepository,
                            ExpensePaymentRepository expensePaymentRepository,
