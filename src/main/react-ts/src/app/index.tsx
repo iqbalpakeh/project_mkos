@@ -1,8 +1,14 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { useEffect } from "react";
 
 import { NavBar, Home, Tenants, Footer } from "./sections";
+import { getExpenses } from "api/expenses-api";
 
 const Component = () => {
+	useEffect(() => {
+		getExpenses();
+	});
+
 	return (
 		<Router>
 			<div className="d-flex flex-column min-vh-100">
