@@ -1,3 +1,5 @@
+import { AnyAction } from "redux";
+
 // ----------------------
 // Type and Interface
 // ----------------------
@@ -19,12 +21,11 @@ interface IAddExpenseTypesAction {
 
 interface IClearExpenseTypesAction {
 	type: TExpenseTypeActions;
-	payload: {};
 }
 
 interface IExpenseTypesReducer {
 	state: IExpenseType[];
-	action: IAddExpenseTypesAction | IClearExpenseTypesAction;
+	action: AnyAction;
 }
 
 // ----------------------
@@ -62,10 +63,10 @@ export const expenseTypesReducer = ({
 }: IExpenseTypesReducer): IExpenseType[] => {
 	switch (action.type) {
 		case ADD_EXPENSE_TYPES:
-			return state.push(action.payload);
+			return [...state, action.payload];
+		case CLEAR_EXPENSE_TYPES:
+			return [];
 		default:
 			return state;
 	}
 };
-
-export {};
