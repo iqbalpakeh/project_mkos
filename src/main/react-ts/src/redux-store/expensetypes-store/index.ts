@@ -32,7 +32,7 @@ interface IExpenseTypesReducer {
 // Actions
 // ----------------------
 
-export const addExpenseType = ({
+export const addExpenseTypeAction = ({
 	expenseType,
 	expenseInformation,
 }: IExpenseType): IAddExpenseTypesAction => {
@@ -45,7 +45,7 @@ export const addExpenseType = ({
 	};
 };
 
-export const clearExpenseType = (): IClearExpenseTypesAction => {
+export const clearExpenseTypeAction = (): IClearExpenseTypesAction => {
 	return {
 		type: CLEAR_EXPENSE_TYPES,
 	};
