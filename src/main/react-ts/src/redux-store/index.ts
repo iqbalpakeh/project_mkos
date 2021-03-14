@@ -11,13 +11,17 @@ export {
 	clearExpenseTypeAction,
 } from "./expensetypes-store";
 
+// Add another store type here ... and don't forget to combine it
+
 // -------------------------
 // Combine Reducer
 // -------------------------
 
+const initialState = {};
 export const store = createStore(
 	combineReducers({
 		expenseTypesReducer,
-		devToolsEnhancer,
-	})
+	}),
+	initialState,
+	devToolsEnhancer({})
 );

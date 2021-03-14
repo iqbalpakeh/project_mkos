@@ -23,11 +23,6 @@ interface IClearExpenseTypesAction {
 	type: TExpenseTypeActions;
 }
 
-interface IExpenseTypesReducer {
-	state: IExpenseType[];
-	action: AnyAction;
-}
-
 // ----------------------
 // Actions
 // ----------------------
@@ -55,12 +50,10 @@ export const clearExpenseTypeAction = (): IClearExpenseTypesAction => {
 // Reducer
 // ----------------------
 
-const initialState: IExpenseType[] = [];
-
-export const expenseTypesReducer = ({
-	state = initialState,
-	action,
-}: IExpenseTypesReducer): IExpenseType[] => {
+export const expenseTypesReducer = (
+	state: IExpenseType[] = [],
+	action: AnyAction
+): IExpenseType[] => {
 	switch (action.type) {
 		case ADD_EXPENSE_TYPES:
 			return [...state, action.payload];
