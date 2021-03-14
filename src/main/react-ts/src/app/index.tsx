@@ -1,8 +1,9 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { AnyAction, Dispatch } from "redux";
 
+import { IReducer } from "redux-store";
 import { NavBar, Home, Tenants, Footer } from "./sections";
 import { getExpenseTypes, getRooms } from "api";
 
@@ -12,7 +13,10 @@ const Component = () => {
 	useEffect(() => {
 		getExpenseTypes(dispatch);
 		getRooms();
-	});
+	}, [dispatch]);
+
+	const state = useSelector<IReducer>((state) => state.expenseTypesReducer);
+	console.log(state);
 
 	return (
 		<Router>

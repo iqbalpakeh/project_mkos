@@ -18,10 +18,9 @@ export {
 // -------------------------
 
 const initialState = {};
-export const store = createStore(
-	combineReducers({
-		expenseTypesReducer,
-	}),
-	initialState,
-	devToolsEnhancer({})
-);
+const reducers = combineReducers({
+	expenseTypesReducer,
+});
+
+export type IReducer = ReturnType<typeof reducers>;
+export const store = createStore(reducers, initialState, devToolsEnhancer({}));
