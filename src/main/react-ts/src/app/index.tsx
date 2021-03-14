@@ -15,8 +15,10 @@ const Component = () => {
 		getRooms();
 	}, [dispatch]);
 
-	const state = useSelector<IReducer>((state) => state.expenseTypesReducer);
-	console.log(state);
+	const expenseTypes = useSelector<IReducer>(
+		(state) => state.expenseTypesReducer
+	);
+	console.log(expenseTypes);
 
 	return (
 		<Router>
