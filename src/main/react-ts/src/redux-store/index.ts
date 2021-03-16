@@ -8,7 +8,7 @@ import { devToolsEnhancer } from "redux-devtools-extension";
 import { expenseTypesReducer } from "./expensetypes-store";
 export {
 	addExpenseTypeAction,
-	clearExpenseTypeAction,
+	clearAllExpenseTypesAction,
 } from "./expensetypes-store";
 
 // Add another store type here ... and don't forget to combine it

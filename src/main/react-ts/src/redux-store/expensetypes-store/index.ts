@@ -4,23 +4,23 @@ import { AnyAction } from "redux";
 // Type and Interface
 // ----------------------
 
-const ADD_EXPENSE_TYPES = "ADD_EXPENSE_TYPES";
-const CLEAR_EXPENSE_TYPES = "CLEAR_EXPENSE_TYPES";
+const ADD_EXPENSE_TYPE = "ADD_EXPENSE_TYPE";
+const CLEAR_ALL_EXPENSE_TYPES = "CLEAR_ALL_EXPENSE_TYPES";
 
-type TExpenseTypeActions = "ADD_EXPENSE_TYPES" | "CLEAR_EXPENSE_TYPES";
+type TExpenseTypeAction = "ADD_EXPENSE_TYPE" | "CLEAR_ALL_EXPENSE_TYPES";
 
 interface IExpenseType {
 	expenseType: string;
 	expenseInformation: string;
 }
 
-interface IAddExpenseTypesAction {
-	type: TExpenseTypeActions;
+interface IAddExpenseTypeAction {
+	type: TExpenseTypeAction;
 	payload: IExpenseType;
 }
 
-interface IClearExpenseTypesAction {
-	type: TExpenseTypeActions;
+interface IClearAllExpenseTypesAction {
+	type: TExpenseTypeAction;
 }
 
 // ----------------------
@@ -30,9 +30,9 @@ interface IClearExpenseTypesAction {
 export const addExpenseTypeAction = ({
 	expenseType,
 	expenseInformation,
-}: IExpenseType): IAddExpenseTypesAction => {
+}: IExpenseType): IAddExpenseTypeAction => {
 	return {
-		type: ADD_EXPENSE_TYPES,
+		type: ADD_EXPENSE_TYPE,
 		payload: {
 			expenseType,
 			expenseInformation,
@@ -40,9 +40,9 @@ export const addExpenseTypeAction = ({
 	};
 };
 
-export const clearExpenseTypeAction = (): IClearExpenseTypesAction => {
+export const clearAllExpenseTypesAction = (): IClearAllExpenseTypesAction => {
 	return {
-		type: CLEAR_EXPENSE_TYPES,
+		type: CLEAR_ALL_EXPENSE_TYPES,
 	};
 };
 
@@ -55,9 +55,9 @@ export const expenseTypesReducer = (
 	action: AnyAction
 ): IExpenseType[] => {
 	switch (action.type) {
-		case ADD_EXPENSE_TYPES:
+		case ADD_EXPENSE_TYPE:
 			return [...state, action.payload];
-		case CLEAR_EXPENSE_TYPES:
+		case CLEAR_ALL_EXPENSE_TYPES:
 			return [];
 		default:
 			return state;
