@@ -1,13 +1,11 @@
 import { AnyAction } from "redux";
 
 // ----------------------
-// Type and Interface
+// Interfaces
 // ----------------------
 
 const ADD_EXPENSE_TYPE = "ADD_EXPENSE_TYPE";
 const CLEAR_ALL_EXPENSE_TYPES = "CLEAR_ALL_EXPENSE_TYPES";
-
-type TExpenseTypeAction = "ADD_EXPENSE_TYPE" | "CLEAR_ALL_EXPENSE_TYPES";
 
 interface IExpenseType {
 	expenseType: string;
@@ -15,12 +13,12 @@ interface IExpenseType {
 }
 
 interface IAddExpenseTypeAction {
-	type: TExpenseTypeAction;
+	type: string;
 	payload: IExpenseType;
 }
 
 interface IClearAllExpenseTypesAction {
-	type: TExpenseTypeAction;
+	type: string;
 }
 
 // ----------------------
