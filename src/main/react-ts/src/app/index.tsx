@@ -12,7 +12,7 @@ const Component = () => {
 
 	useEffect(() => {
 		getExpenseTypes(dispatch);
-		getRooms();
+		getRooms(dispatch);
 	}, [dispatch]);
 
 	const expenseTypes = useSelector<IReducer>(
