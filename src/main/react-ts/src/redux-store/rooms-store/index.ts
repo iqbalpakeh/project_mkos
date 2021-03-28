@@ -1,6 +1,6 @@
 import { AnyAction } from "redux";
 
-import { ITenants } from "../tenants-store";
+import { ITenant } from "../tenants-store";
 
 // ----------------------
 // Interfaces
@@ -13,7 +13,7 @@ export interface IRoom {
 	roomNumber: string;
 	roomRate: number;
 	roomInformation: string;
-	tenant?: ITenants;
+	tenant?: ITenant;
 }
 
 interface IAddRoomAction {
