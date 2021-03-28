@@ -5,7 +5,7 @@ import { AnyAction, Dispatch } from "redux";
 
 import { IReducer } from "redux-store";
 import { NavBar, Home, Tenants, Footer } from "./sections";
-import { getExpenseTypes, getRooms } from "api";
+import { getExpenseTypes, getRooms, getTenants } from "api";
 
 const Component = () => {
 	const dispatch: Dispatch<AnyAction> = useDispatch();
@@ -13,6 +13,7 @@ const Component = () => {
 	useEffect(() => {
 		getExpenseTypes(dispatch);
 		getRooms(dispatch);
+		getTenants(dispatch);
 	}, [dispatch]);
 
 	const expenseTypes = useSelector<IReducer>(
