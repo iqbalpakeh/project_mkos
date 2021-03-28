@@ -1,5 +1,7 @@
+import { default as AddPayment } from "./add-payment";
+
 const Component = () => {
-	return <div>Controller</div>;
+	return <AddPayment />;
 };
 
 export default Component;

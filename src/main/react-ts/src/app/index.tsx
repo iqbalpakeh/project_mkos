@@ -11,9 +11,9 @@ const Component = () => {
 	const dispatch: Dispatch<AnyAction> = useDispatch();
 
 	useEffect(() => {
-		getExpenseTypes(dispatch);
-		getRooms(dispatch);
-		getTenants(dispatch);
+		// getExpenseTypes(dispatch);
+		// getRooms(dispatch);
+		// getTenants(dispatch);
 	}, [dispatch]);
 
 	const expenseTypes = useSelector<IReducer>(
